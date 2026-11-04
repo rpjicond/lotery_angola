@@ -30,7 +30,34 @@ export const LOTTERY_DRAWS: LotteryDraw[] = [
     ],
     totalRegistered: 14280,
     status: 'drawing_soon',
-    drawTargetTimestamp: now + 2 * 24 * 3600 * 1000 + 4 * 3600 * 1000 // in ~2.1 days
+    drawTargetTimestamp: now + 2 * 24 * 3600 * 1000 + 4 * 3600 * 1000
+  },
+  {
+    id: 'draw-fr-france',
+    slug: 'franca-paris-schengen',
+    title: 'Grande Sorteio França: Visto Schengen & Estudos',
+    destination: 'França (Paris / Lyon / Marseille)',
+    flag: '🇫🇷',
+    visaType: 'Visto de Estudos (Campus France), Trabalho & Talent Passport',
+    nextDrawDate: 'Quarta-Feira, 20:30 (Hora de Luanda)',
+    drawNumber: 26,
+    totalPrizes: 2,
+    freeEntryAvailable: true,
+    ticketPriceAOA: 500,
+    accentColor: '#0055A5',
+    highlightBenefit: 'Taxas VFS/Capago França + Tradução + Passagem + 800.000 Kz',
+    description: 'Oportunidade oficial de obter visto para a França. Financiamento total das taxas do centro Capago/VFS França em Luanda, traduções juramentadas para o francês, seguro de viagem e passagem aérea para Paris.',
+    packageIncludes: [
+      'Taxas de Agendamento no Centro Capago / VFS França e Embaixada pagas',
+      'Tradução Juramentada de certidões e certificados escolares para Francês',
+      'Acompanhamento no processo Campus France e validação acadêmica',
+      'Seguro de Saúde Internacional Schengen com cobertura de 30.000€',
+      'Passagem Aérea de Ida Luanda - Paris (Air France / TAAG)',
+      'Apoio no Alojamento em França e Subsídio de Instalação de 800.000 AOA'
+    ],
+    totalRegistered: 9820,
+    status: 'active',
+    drawTargetTimestamp: now + 3 * 24 * 3600 * 1000 + 8 * 3600 * 1000
   },
   {
     id: 'draw-ca-express',
@@ -86,33 +113,6 @@ export const LOTTERY_DRAWS: LotteryDraw[] = [
     totalRegistered: 11450,
     status: 'active',
     drawTargetTimestamp: now + 4 * 24 * 3600 * 1000 + 2 * 3600 * 1000
-  },
-  {
-    id: 'draw-eu-germany',
-    slug: 'schengen-alemanha-polonia',
-    title: 'Sorteio Europa Técnica: Alemanha & Polónia',
-    destination: 'Alemanha (Berlim / Munique) & Polónia',
-    flag: '🇪🇺',
-    visaType: 'Visto Carta de Oportunidade (Chancenkarte) / Trabalho Especializado',
-    nextDrawDate: 'Quarta-Feira, 21:00 (Hora de Luanda)',
-    drawNumber: 16,
-    totalPrizes: 2,
-    freeEntryAvailable: true,
-    ticketPriceAOA: 500,
-    accentColor: '#2563eb',
-    highlightBenefit: 'Taxas Embaixada + Reconhecimento IHK/ZAB + Passagem + 800.000 Kz',
-    description: 'Projetado para técnicos, enfermeiros, engenheiros e profissionais angolanos com formação média ou superior que desejam atuar no mercado industrial da União Europeia.',
-    packageIncludes: [
-      'Taxas consulares da Embaixada da Alemanha em Luanda pagas',
-      'Reconhecimento oficial de habilitações junto das autoridades europeias (ZAB)',
-      'Tradução juramentada para o alemão de todo o processo',
-      'Seguro de saúde conforme requisitos Schengen (30.000€)',
-      'Passagem aérea de Ida para a Europa',
-      'Subsídio de Acomodação inicial de 800.000 AOA'
-    ],
-    totalRegistered: 6320,
-    status: 'active',
-    drawTargetTimestamp: now + 7 * 24 * 3600 * 1000
   }
 ];
 

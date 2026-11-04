@@ -33,9 +33,9 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
             
-            {/* Left Column: Headlines, Description & CTA - basic text without card background */}
+            {/* Left Column: Headlines, Description & CTA */}
             <div className="lg:col-span-6 z-10 text-center lg:text-left">
-              <h1 className="hidden sm:block text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-black uppercase tracking-tight leading-[1.1] font-display drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+              <h1 className="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-black uppercase tracking-tight leading-[1.1] font-display drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
                 <span className="block text-[#FFDE00] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   CANSADO DE
                 </span>
@@ -51,12 +51,12 @@ export const Hero: React.FC<HeroProps> = ({
                 </span>
               </h1>
 
-              <p className="hidden sm:block mt-3.5 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-100 max-w-lg mx-auto lg:mx-0 leading-relaxed font-semibold px-1 sm:px-0 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+              <p className="mt-3.5 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-100 max-w-lg mx-auto lg:mx-0 leading-relaxed font-semibold px-1 sm:px-0 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
                 A Lotaria de Vistos Angola (LVA) financia 100% das suas taxas consulares, assessoria jurídica, certidões no MIREX, seguro de saúde e bilhetes de avião.
               </p>
 
-              {/* Big Golden Yellow Pill CTA Button with warm glow - visible on tablet and desktop */}
-              <div className="hidden sm:flex mt-5 sm:mt-7 justify-center lg:justify-start">
+              {/* Big Golden Yellow Pill CTA Button with warm glow */}
+              <div className="mt-5 sm:mt-7 flex justify-center lg:justify-start">
                 <button
                   type="button"
                   onClick={onOpenParticipate}
@@ -68,10 +68,10 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Right Column: Palanca Negra Gigante with transparent background holding passport */}
-            <div className="lg:col-span-6 flex justify-center lg:justify-end z-10 mt-1 sm:mt-0">
+            <div className="lg:col-span-6 flex justify-center lg:justify-end z-10 mt-6 lg:mt-0">
               <div
                 onClick={onOpenParticipate}
-                className="relative group cursor-pointer flex flex-col items-center justify-center max-w-[620px] sm:max-w-[700px] lg:max-w-[800px] w-full"
+                className="relative group cursor-pointer flex flex-col items-center justify-center max-w-[440px] sm:max-w-[580px] lg:max-w-[700px] w-full"
                 title="Clique para participar no Sorteio Oficial da LVA"
               >
                 {/* Subtle golden & navy glow behind character */}
@@ -81,30 +81,8 @@ export const Hero: React.FC<HeroProps> = ({
                 <img
                   src="/assets/lva/palanca_transparente.png"
                   alt="Palanca Negra Gigante em fato executivo exibindo o Passaporte de Angola com fundo transparente"
-                  className="relative z-10 w-full max-h-[520px] min-[400px]:max-h-[580px] sm:max-h-[780px] lg:max-h-[840px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
+                  className="relative z-10 w-full max-h-[480px] min-[400px]:max-h-[540px] sm:max-h-[640px] lg:max-h-[720px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
                 />
-
-                {/* Mobile Text & CTA Block positioned directly under Palanca image */}
-                <div className="block sm:hidden text-center mt-3 pb-2 px-2 z-20">
-                  <h1 className="text-xl min-[380px]:text-2xl font-black uppercase tracking-tight leading-tight font-display drop-shadow-[0_4px_15px_rgba(0,0,0,0.95)]">
-                    <span className="block text-[#FFDE00] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                      CANSADO DE BUROCRACIA?
-                    </span>
-                    <span className="block text-white mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-                      GANHE TRATAMENTO DE VISTO <span className="text-[#FFDE00]">GRATUITO!</span>
-                    </span>
-                  </h1>
-
-                  <div className="mt-4 flex justify-center">
-                    <button
-                      type="button"
-                      onClick={onOpenParticipate}
-                      className="w-full inline-flex items-center justify-center px-6 py-3.5 text-xs font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] active:bg-amber-500 rounded-full transition-all shadow-[0_8px_25px_rgba(255,222,0,0.4)] active:scale-95 cursor-pointer uppercase tracking-tight"
-                    >
-                      <span>QUERO PARTICIPAR AGORA!</span>
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
 
