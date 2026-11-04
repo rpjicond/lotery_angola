@@ -32,8 +32,8 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
             
-            {/* Left Column: Headlines, Description & CTA */}
-            <div className="lg:col-span-6 z-10 text-center lg:text-left bg-[#040C1D]/50 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-4 sm:p-0 rounded-2xl border border-white/5 sm:border-none">
+            {/* Left Column: Headlines, Description & CTA - basic text without card background */}
+            <div className="lg:col-span-6 z-10 text-center lg:text-left">
               <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-black uppercase tracking-tight leading-[1.1] font-display drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
                 <span className="block text-[#FFDE00] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   CANSADO DE
