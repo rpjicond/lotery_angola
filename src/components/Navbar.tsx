@@ -1,5 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ChevronRight,
+  Home,
+  BookOpen,
+  Award,
+  Trophy,
+  Search,
+  Radio,
+  HelpCircle,
+  ShieldCheck,
+  Phone,
+  CheckCircle2,
+} from 'lucide-react';
 
 interface NavbarProps {
   onOpenRegisterOrTicket: () => void;
@@ -39,6 +53,18 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'duvidas', label: 'Perguntas Frequentes (FAQ)' },
     { id: 'sobre-nos', label: 'Sobre Nós' },
     { id: 'contactos', label: 'Contactos' },
+  ];
+
+  const mobileNavItems = [
+    { id: 'hero', label: 'Início', icon: Home },
+    { id: 'como-funciona', label: 'Como Funciona', icon: BookOpen },
+    { id: 'premios', label: 'Prêmios', icon: Award },
+    { id: 'vencedores', label: 'Vencedores', icon: Trophy },
+    { id: 'verificador', label: 'Consultar Bilhete', icon: Search },
+    { id: 'extracao-ao-vivo', label: 'Sorteio Ao Vivo', icon: Radio },
+    { id: 'duvidas', label: 'Perguntas Frequentes', icon: HelpCircle },
+    { id: 'sobre-nos', label: 'Sobre Nós', icon: ShieldCheck },
+    { id: 'contactos', label: 'Contactos', icon: Phone },
   ];
 
   return (
@@ -134,56 +160,98 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Matching Screenshots Capture_d__cran_2026-11-04_211930 & 211946 */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-[#0a275f]/80 bg-[#040C1D]/98 backdrop-blur-md shadow-2xl animate-in slide-in-from-top-2 duration-200">
-          <div className="px-4 py-4 space-y-3">
-            <button
-              type="button"
-              onClick={() => {
-                onOpenRegisterOrTicket();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-3 px-4 rounded-xl text-sm font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-tight"
-            >
-              <span>QUERO PARTICIPAR AGORA!</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
+        <div className="xl:hidden border-t border-[#0a275f]/80 bg-[#040C1D]/98 backdrop-blur-md shadow-2xl animate-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-80px)] overflow-y-auto">
+          <div className="px-4 py-4 space-y-3.5">
+            
+            {/* Card 1: Official Draw Banner matching screenshot */}
+            <div className="bg-[#0B2C69] border-2 border-[#FBBF24] rounded-2xl p-4 text-white shadow-xl space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="text-[11px] font-black text-[#FBBF24] uppercase tracking-wide">
+                    SORTEIO OFICIAL ABERTO
+                  </span>
+                </div>
+                <span className="text-[10px] font-black text-slate-950 bg-[#FBBF24] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Apenas 500 Kz
+                </span>
+              </div>
 
+              <h4 className="text-sm font-extrabold text-white leading-snug">
+                Concorra a Visto 100% Gratuito, MIREX e Passagens Aéreas!
+              </h4>
+
+              <button
+                type="button"
+                onClick={() => {
+                  onOpenRegisterOrTicket();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full py-3 px-4 rounded-full text-xs font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] active:bg-amber-500 shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-tight"
+              >
+                <span>QUERO PARTICIPAR AGORA!</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-200 pt-0.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>1 Bilhete Grátis Diário por BI</span>
+              </div>
+            </div>
+
+            {/* Card 2: Ver Meus Bilhetes Registados matching screenshot */}
             <button
               type="button"
               onClick={() => {
                 onOpenMyTickets();
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold text-white bg-[#0B2C69] border border-[#2353A2] flex items-center justify-between cursor-pointer"
+              className="w-full py-3 px-4 rounded-2xl text-xs font-bold text-white bg-[#0B2C69] border border-[#2353A2] shadow-md flex items-center justify-between cursor-pointer hover:bg-[#103780] transition-colors"
             >
-              <div className="flex items-center gap-2">
-                <div className="w-3.5 h-4 bg-[#FBBF24] rounded-[2px] border border-amber-300 flex items-center justify-center shrink-0">
-                  <div className="w-1.5 h-1.5 rounded-full border border-slate-900" />
+              <div className="flex items-center gap-2.5">
+                <div className="relative flex items-center shrink-0 w-6 h-5">
+                  <div className="absolute left-0 top-0 w-4 h-5 bg-[#0B2C69] border border-[#FBBF24] rounded-[2px] rotate-[-9deg]" />
+                  <div className="absolute left-2 top-0 w-4 h-5 bg-[#FBBF24] rounded-[2px] rotate-[9deg] flex items-center justify-center">
+                    <span className="text-[5px] font-black text-slate-950">AO</span>
+                  </div>
                 </div>
-                <span>Meus Bilhetes Guardados</span>
+                <span className="text-sm font-bold text-white">Ver Meus Bilhetes Registados</span>
               </div>
-              <span className="bg-[#FFDE00] text-slate-950 font-black px-2 py-0.5 rounded-full text-xs">
+              <span className="bg-[#FFDE00] text-slate-950 font-black w-6 h-6 rounded-full text-xs flex items-center justify-center shrink-0">
                 {ticketCount > 0 ? ticketCount : 2}
               </span>
             </button>
 
-            <div className="bg-[#061530] rounded-xl border border-[#0a275f] p-1 divide-y divide-[#0a275f]/60">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => handleLinkClick(item.id)}
-                  className="w-full text-left py-2.5 px-3 rounded-lg text-sm font-medium text-slate-200 hover:bg-[#0B2C69] hover:text-white flex items-center justify-between cursor-pointer"
-                >
-                  <span className={activeSection === item.id ? 'text-[#FFDE00] font-bold' : ''}>
-                    {item.label}
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-slate-400" />
-                </button>
-              ))}
+            {/* Card 3: Mobile Navigation List matching screenshot */}
+            <div className="bg-[#071F4A] rounded-2xl border border-[#133A7C] p-2 space-y-1 shadow-xl">
+              {mobileNavItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => handleLinkClick(item.id)}
+                    className={`w-full text-left py-3 px-3.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer transition-colors ${
+                      isActive
+                        ? 'bg-[#0E387D] text-[#FFDE00] font-bold shadow-sm'
+                        : 'text-slate-200 hover:bg-[#0B2C69] hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon className={`w-4 h-4 ${isActive ? 'text-[#FFDE00]' : 'text-slate-300'}`} />
+                      <span className={isActive ? 'text-[#FFDE00] font-bold' : 'text-white'}>
+                        {item.label}
+                      </span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </button>
+                );
+              })}
             </div>
+
           </div>
         </div>
       )}
