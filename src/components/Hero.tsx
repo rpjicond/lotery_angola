@@ -24,33 +24,33 @@ export const Hero: React.FC<HeroProps> = ({
               className="w-full h-full object-cover object-top opacity-95 filter brightness-[1.08] contrast-[1.04]"
             />
           </picture>
-          {/* Subtle gradient vignette to blend seamlessly */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#040C1D]/25 via-transparent to-[#040C1D]/15 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D]/90 via-transparent to-transparent pointer-events-none" />
+          {/* Subtle gradient vignette to provide deep dark contrast behind headlines for maximum readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040C1D]/85 via-[#040C1D]/60 to-[#040C1D]/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D] via-transparent to-[#040C1D]/40 pointer-events-none" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
             
             {/* Left Column: Headlines, Description & CTA */}
-            <div className="lg:col-span-6 z-10 text-center lg:text-left">
-              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-black uppercase tracking-tight leading-[1.1] font-display">
-                <span className="block text-[#FBBF24] drop-shadow-sm">
+            <div className="lg:col-span-6 z-10 text-center lg:text-left bg-[#040C1D]/50 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-4 sm:p-0 rounded-2xl border border-white/5 sm:border-none">
+              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-black uppercase tracking-tight leading-[1.1] font-display drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+                <span className="block text-[#FFDE00] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   CANSADO DE
                 </span>
-                <span className="block text-[#FBBF24] drop-shadow-sm">
+                <span className="block text-[#FFDE00] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   BUROCRACIA?
                 </span>
-                <span className="block text-white mt-0.5 sm:mt-1">
+                <span className="block text-white mt-0.5 sm:mt-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                   GANHE TRATAMENTO
                 </span>
                 <span className="block mt-0.5 sm:mt-1">
-                  <span className="text-white">DE VISTO </span>
-                  <span className="text-[#FBBF24]">GRATUITO!</span>
+                  <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">DE VISTO </span>
+                  <span className="text-[#FFDE00] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">GRATUITO!</span>
                 </span>
               </h1>
 
-              <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-300 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal px-1 sm:px-0">
+              <p className="mt-3.5 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-100 max-w-lg mx-auto lg:mx-0 leading-relaxed font-semibold px-1 sm:px-0 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
                 A Lotaria de Vistos Angola (LVA) financia 100% das suas taxas consulares, assessoria jurídica, certidões no MIREX, seguro de saúde e bilhetes de avião.
               </p>
 
@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <button
                   type="button"
                   onClick={onOpenParticipate}
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-7 sm:px-10 py-3.5 text-xs sm:text-sm font-black text-slate-950 bg-[#FBBF24] hover:bg-[#F59E0B] active:bg-amber-500 rounded-full transition-all shadow-[0_10px_25px_rgba(251,191,36,0.35)] active:scale-95 cursor-pointer uppercase tracking-tight"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-7 sm:px-10 py-3.5 text-xs sm:text-sm font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] active:bg-amber-500 rounded-full transition-all shadow-[0_10px_30px_rgba(255,222,0,0.4)] active:scale-95 cursor-pointer uppercase tracking-tight"
                 >
                   <span>QUERO PARTICIPAR AGORA!</span>
                 </button>

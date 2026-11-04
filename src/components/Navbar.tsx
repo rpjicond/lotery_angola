@@ -121,13 +121,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-100 bg-[#0B2C69] hover:bg-[#103780] border border-[#2353A2] focus:outline-none flex items-center justify-center cursor-pointer transition-colors"
+              className="p-2 rounded-xl text-white bg-transparent hover:bg-white/10 active:bg-white/15 focus:outline-none flex items-center justify-center cursor-pointer transition-colors"
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
             >
               {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-[#FFDE00]" />
+                <X className="w-6 h-6 text-[#FFDE00]" />
               ) : (
-                <Menu className="w-5 h-5 text-white" />
+                <Menu className="w-6 h-6 text-white" />
               )}
             </button>
           </div>
