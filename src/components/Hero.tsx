@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section id="hero" className="relative bg-[#040C1D] text-white overflow-hidden">
       {/* Background with futuristic Angolan golden waves and national emblem */}
-      <div className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-[82px] sm:pt-[88px] lg:pt-[92px]">
+      <div className="relative min-h-[640px] min-[400px]:min-h-[720px] sm:min-h-[780px] lg:min-h-[840px] flex items-center pt-[82px] sm:pt-[88px] lg:pt-[92px]">
         
         {/* Angolan Golden Waves & Emblem Background - picture tag with mobile and desktop assets */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -21,12 +21,12 @@ export const Hero: React.FC<HeroProps> = ({
             <img
               src="/assets/lva/angola_golden_waves_emblem.jpg"
               alt="Ondas Douradas da Rede Futurista Angolana com Emblema Nacional"
-              className="w-full h-full object-cover object-top opacity-95 filter brightness-[1.08] contrast-[1.04]"
+              className="w-full h-full object-cover object-center opacity-100 filter brightness-[1.10] contrast-[1.05]"
             />
           </picture>
-          {/* Subtle gradient vignette to provide deep dark contrast behind headlines for maximum readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#040C1D]/85 via-[#040C1D]/60 to-[#040C1D]/20 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D] via-transparent to-[#040C1D]/40 pointer-events-none" />
+          {/* Light gradient vignette to blend seamlessly while keeping background vivid and bright */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040C1D]/30 via-transparent to-[#040C1D]/15 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D] via-transparent to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">
@@ -70,17 +70,17 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="lg:col-span-6 flex justify-center lg:justify-end z-10 mt-1 sm:mt-0">
               <div
                 onClick={onOpenParticipate}
-                className="relative group cursor-pointer flex flex-col items-center justify-center max-w-[560px] sm:max-w-[640px] lg:max-w-[740px] w-full"
+                className="relative group cursor-pointer flex flex-col items-center justify-center max-w-[620px] sm:max-w-[700px] lg:max-w-[800px] w-full"
                 title="Clique para participar no Sorteio Oficial da LVA"
               >
                 {/* Subtle golden & navy glow behind character */}
-                <div className="absolute inset-0 bg-radial from-[#FBBF24]/30 via-[#1E4B94]/20 to-transparent blur-3xl rounded-full transform scale-100 pointer-events-none group-hover:from-[#FBBF24]/40 transition-all duration-500" />
+                <div className="absolute inset-0 bg-radial from-[#FBBF24]/35 via-[#1E4B94]/25 to-transparent blur-3xl rounded-full transform scale-105 pointer-events-none group-hover:from-[#FBBF24]/50 transition-all duration-500" />
 
                 {/* Palanca Negra Gigante holding Angolan passport with transparent background */}
                 <img
                   src="/assets/lva/palanca_transparente.png"
                   alt="Palanca Negra Gigante em fato executivo exibindo o Passaporte de Angola com fundo transparente"
-                  className="relative z-10 w-full max-h-[580px] min-[400px]:max-h-[640px] sm:max-h-[680px] lg:max-h-[740px] object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
+                  className="relative z-10 w-full max-h-[640px] min-[400px]:max-h-[720px] sm:max-h-[780px] lg:max-h-[840px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
                 />
               </div>
             </div>
