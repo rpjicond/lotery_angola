@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({
             </a>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
-              Plataforma oficial de incentivo à mobilidade internacional e financiamento de vistos para Portugal, Europa, Canadá e Brasil.
+              Plataforma oficial de patrocínio de vistos de trabalho e estudo em Portugal e França, com parcerias diretas com empresas e instituições europeias.
             </p>
 
             <div className="flex items-center gap-2 p-2.5 bg-[#071D45] rounded-xl border border-[#133A7C] text-xs text-slate-200">
@@ -138,24 +138,16 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Column 3: Destinos de Vistos */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-sm font-black text-[#FFDE00] uppercase tracking-wider font-display">
-              Destinos Financiados
+              Destinos & Parcerias
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li className="flex items-center gap-2">
                 <span className="text-base">🇵🇹</span>
-                <span className="font-semibold text-white">Portugal · Vistos CPLP, D2, D7 e Procura de Trabalho</span>
+                <span className="font-semibold text-white">Portugal · Trabalho & Estudo (Empresas Parceiras)</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-base">🇫🇷</span>
-                <span className="font-semibold text-white">França · Vistos Schengen, Estudos (Campus France) e Talent Passport</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-base">🇨🇦</span>
-                <span>Canadá · Express Entry e Visto de Estudos</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-base">🇧🇷</span>
-                <span>Brasil · Visto de Residência CPLP e Trabalho</span>
+                <span className="font-semibold text-white">França · Trabalho & Estudo (Parcerias Corporativas)</span>
               </li>
             </ul>
           </div>
