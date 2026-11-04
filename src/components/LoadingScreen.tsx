@@ -65,24 +65,18 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       }`}
       aria-label="Carregando portal LVA"
     >
-      {/* Background ambient lighting and white security thread lines */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#123E87]/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-amber-400/10 rounded-full blur-2xl" />
-
-        {/* Security thread lines (fios brancos de alta resolução) */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <g stroke="#FFFFFF" strokeWidth="0.9" fill="none" opacity="0.35">
-            <path d="M-50,50 C200,-30 400,300 800,20" />
-            <path d="M-50,90 C220,10 420,340 800,60" />
-            <path d="M-50,130 C240,50 440,380 800,100" />
-            <path d="M-50,170 C260,90 460,420 800,140" />
-          </g>
-          <g stroke="#FBBF24" strokeWidth="0.7" fill="none" opacity="0.3">
-            <path d="M-20,0 C300,180 500,-40 850,220" />
-            <path d="M-20,40 C320,220 520,0 850,260" />
-          </g>
-        </svg>
+      {/* Responsive Background: Mobile asset for phones, PC asset for desktop */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <picture className="w-full h-full">
+          <source media="(max-width: 639px)" srcSet="/assets/lva/angola_golden_waves_mobile.jpg" />
+          <img
+            src="/assets/lva/angola_golden_waves_emblem.jpg"
+            alt="Ondas Douradas da Rede Futurista Angolana"
+            className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.08] opacity-90"
+          />
+        </picture>
+        {/* Dark navy overlay vignette to enhance text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040C1D]/80 via-[#040C1D]/60 to-[#040C1D]/90" />
       </div>
 
       {/* Main Content: Emblem with Circular Ring */}

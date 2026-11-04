@@ -1,4 +1,5 @@
 import React from 'react';
+import { UserCheck, Ticket, Tv, Sparkles } from 'lucide-react';
 
 interface HeroProps {
   onOpenParticipate: () => void;
@@ -111,58 +112,82 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Como Funciona: 3-Step Horizontal Strip */}
-      <div id="como-funciona" className="bg-[#051330] border-y border-[#0a275f] text-white py-3 sm:py-5">
-        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 text-center gap-1 md:gap-0">
+      {/* Como Funciona: 3-Step Premium Cards */}
+      <div id="como-funciona" className="bg-[#030B1A] border-y border-[#0a275f]/80 text-white py-6 sm:py-8">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             
-            {/* Step 1 */}
+            {/* Step 1 Card */}
             <button
               type="button"
               onClick={() => onSelectStep(1)}
-              className="py-2.5 sm:py-3 px-3 sm:px-4 hover:bg-white/5 transition-colors cursor-pointer group rounded-lg md:rounded-none"
+              className="relative bg-[#06183C] hover:bg-[#0A2254] border border-[#133C82]/80 hover:border-[#FFDE00]/70 rounded-2xl p-4 sm:p-5 shadow-xl hover:shadow-[0_10px_30px_rgba(255,222,0,0.18)] transition-all duration-300 cursor-pointer group flex flex-col items-center text-center overflow-hidden"
             >
-              <p className="text-xs sm:text-sm font-black text-[#FBBF24] uppercase tracking-wider">
-                PASSO 1: Registe-se
-              </p>
-              <p className="text-xs sm:text-base font-bold text-white mt-0.5">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFDE00]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#FFDE00]/15 transition-all" />
+              
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-xl bg-[#FFDE00]/15 border border-[#FFDE00]/30 flex items-center justify-center text-[#FFDE00] shrink-0 group-hover:scale-110 transition-transform">
+                  <UserCheck className="w-4 h-4" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] uppercase tracking-wider font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-2.5 py-0.5 rounded-full">
+                  PASSO 1: REGISTE-SE
+                </span>
+              </div>
+
+              <p className="text-sm sm:text-base font-extrabold text-white mt-1 group-hover:text-[#FFDE00] transition-colors">
                 Registo Cívico com BI
               </p>
-              <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-300 mt-1 font-medium leading-relaxed">
                 1 Bilhete Grátis Diário por BI Nacional
               </p>
             </button>
 
-            {/* Step 2 */}
+            {/* Step 2 Card */}
             <button
               type="button"
               onClick={() => onSelectStep(2)}
-              className="py-2.5 sm:py-3 px-3 sm:px-4 hover:bg-white/5 transition-colors cursor-pointer group rounded-lg md:rounded-none"
+              className="relative bg-[#06183C] hover:bg-[#0A2254] border border-[#133C82]/80 hover:border-[#FFDE00]/70 rounded-2xl p-4 sm:p-5 shadow-xl hover:shadow-[0_10px_30px_rgba(255,222,0,0.18)] transition-all duration-300 cursor-pointer group flex flex-col items-center text-center overflow-hidden"
             >
-              <p className="text-xs sm:text-sm font-black text-[#FBBF24] uppercase tracking-wider">
-                PASSO 2: Compre o Bilhete
-              </p>
-              <p className="text-xs sm:text-base font-bold text-white mt-0.5">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFDE00]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#FFDE00]/15 transition-all" />
+
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-xl bg-[#FFDE00]/15 border border-[#FFDE00]/30 flex items-center justify-center text-[#FFDE00] shrink-0 group-hover:scale-110 transition-transform">
+                  <Ticket className="w-4 h-4" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] uppercase tracking-wider font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-2.5 py-0.5 rounded-full">
+                  PASSO 2: COMPRE O BILHETE
+                </span>
+              </div>
+
+              <p className="text-sm sm:text-base font-extrabold text-white mt-1 group-hover:text-[#FFDE00] transition-colors">
                 Apenas 500 Kwanza
               </p>
-              <p className="text-[11px] sm:text-xs text-[#FBBF24] mt-0.5 font-medium">
+              <p className="text-xs text-[#FFDE00] mt-1 font-semibold leading-relaxed">
                 Multicaixa Express, Referência ou Unitel Money
               </p>
             </button>
 
-            {/* Step 3 */}
+            {/* Step 3 Card */}
             <button
               type="button"
               onClick={() => onSelectStep(3)}
-              className="py-2.5 sm:py-3 px-3 sm:px-4 hover:bg-white/5 transition-colors cursor-pointer group rounded-lg md:rounded-none"
+              className="relative bg-[#06183C] hover:bg-[#0A2254] border border-[#133C82]/80 hover:border-[#FFDE00]/70 rounded-2xl p-4 sm:p-5 shadow-xl hover:shadow-[0_10px_30px_rgba(255,222,0,0.18)] transition-all duration-300 cursor-pointer group flex flex-col items-center text-center overflow-hidden"
             >
-              <p className="text-xs sm:text-sm font-black text-[#FBBF24] uppercase tracking-wider">
-                PASSO 3: Participe no Sorteio
-              </p>
-              <p className="text-xs sm:text-base font-bold text-white mt-0.5">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFDE00]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#FFDE00]/15 transition-all" />
+
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-xl bg-[#FFDE00]/15 border border-[#FFDE00]/30 flex items-center justify-center text-[#FFDE00] shrink-0 group-hover:scale-110 transition-transform">
+                  <Tv className="w-4 h-4" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] uppercase tracking-wider font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-2.5 py-0.5 rounded-full">
+                  PASSO 3: PARTICIPE NO SORTEIO
+                </span>
+              </div>
+
+              <p className="text-sm sm:text-base font-extrabold text-white mt-1 group-hover:text-[#FFDE00] transition-colors">
                 Extração Pública ao Vivo
               </p>
-              <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-300 mt-1 font-medium leading-relaxed">
                 Auditoria Oficial do ISJ de Angola
               </p>
             </button>
