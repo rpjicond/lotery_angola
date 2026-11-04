@@ -50,7 +50,7 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
           {/* Title on the left */}
           <div className="shrink-0 text-center lg:text-left">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FBBF24] tracking-tight font-display">
-              Prêmios do Mês
+              Prêmios a Ganhar
             </h2>
           </div>
 

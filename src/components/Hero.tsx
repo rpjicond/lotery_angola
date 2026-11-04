@@ -13,7 +13,7 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section id="hero" className="relative bg-[#040C1D] text-white overflow-hidden">
       {/* Background with futuristic Angolan golden waves and national emblem */}
-      <div className="relative min-h-[640px] min-[400px]:min-h-[720px] sm:min-h-[780px] lg:min-h-[840px] flex items-center pt-[82px] sm:pt-[88px] lg:pt-[92px]">
+      <div className="relative min-h-[640px] min-[400px]:min-h-[720px] sm:min-h-[780px] lg:min-h-[840px] flex items-center pt-[105px] sm:pt-[118px] lg:pt-[128px]">
         
         {/* Angolan Golden Waves & Emblem Background - picture tag with mobile and desktop assets */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
