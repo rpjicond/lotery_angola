@@ -141,11 +141,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <p className="text-xs font-bold text-slate-300 tracking-wider uppercase mt-1">
           Lotaria de Vistos Angola
         </p>
-
-        {/* Circular Percentage */}
-        <p className="mt-3 text-xs font-mono font-bold text-[#FBBF24] tracking-wider">
-          {progress}%
-        </p>
       </div>
     </div>
   );
