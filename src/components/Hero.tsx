@@ -80,8 +80,30 @@ export const Hero: React.FC<HeroProps> = ({
                 <img
                   src="/assets/lva/palanca_transparente.png"
                   alt="Palanca Negra Gigante em fato executivo exibindo o Passaporte de Angola com fundo transparente"
-                  className="relative z-10 w-full max-h-[640px] min-[400px]:max-h-[720px] sm:max-h-[780px] lg:max-h-[840px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
+                  className="relative z-10 w-full max-h-[520px] min-[400px]:max-h-[580px] sm:max-h-[780px] lg:max-h-[840px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
                 />
+
+                {/* Mobile Text & CTA Block positioned directly under Palanca image */}
+                <div className="block sm:hidden text-center mt-3 pb-2 px-2 z-20">
+                  <h1 className="text-xl min-[380px]:text-2xl font-black uppercase tracking-tight leading-tight font-display drop-shadow-[0_4px_15px_rgba(0,0,0,0.95)]">
+                    <span className="block text-[#FFDE00] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      CANSADO DE BUROCRACIA?
+                    </span>
+                    <span className="block text-white mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                      GANHE TRATAMENTO DE VISTO <span className="text-[#FFDE00]">GRATUITO!</span>
+                    </span>
+                  </h1>
+
+                  <div className="mt-4 flex justify-center">
+                    <button
+                      type="button"
+                      onClick={onOpenParticipate}
+                      className="w-full inline-flex items-center justify-center px-6 py-3.5 text-xs font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] active:bg-amber-500 rounded-full transition-all shadow-[0_8px_25px_rgba(255,222,0,0.4)] active:scale-95 cursor-pointer uppercase tracking-tight"
+                    >
+                      <span>QUERO PARTICIPAR AGORA!</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
