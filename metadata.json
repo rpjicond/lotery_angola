@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix LVA - Lotaria de Vistos Angola",
+  "description": "Portal oficial da Lotaria de Vistos Angola (LVA). Concorra a tratamento de visto gratuito, assessoria jurídica, bilhetes de avião e taxas consulares para Portugal, Canadá, Brasil e Europa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

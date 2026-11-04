@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="7" fill="#071F4A"/>
+  <rect x="5" y="6" width="15" height="20" rx="2.5" fill="#0E357A" stroke="#FBBF24" stroke-width="1.2"/>
+  <rect x="12" y="6" width="15" height="20" rx="2.5" fill="#FBBF24" stroke="#D97706" stroke-width="1"/>
+  <circle cx="19.5" cy="13" r="3" fill="none" stroke="#071F4A" stroke-width="1"/>
+  <path d="M19.5 11.2 L19.9 12.3 L21 12.3 L20.1 13 L20.5 14.1 L19.5 13.4 L18.5 14.1 L18.9 13 L18 12.3 L19.1 12.3 Z" fill="#071F4A"/>
+  <text x="19.5" y="21" font-family="Arial, sans-serif" font-weight="900" font-size="5" fill="#071F4A" text-anchor="middle">LVA</text>
+</svg>

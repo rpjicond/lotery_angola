@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: var(--font-sans);
+  color-scheme: light;
+}
+
+/* Custom smooth scroll and print styles */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: #040C1D;
+  color: #ffffff;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #040C1D;
+  color: #ffffff;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
