@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, CheckCircle2, Clock, AlertCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { UserTicket } from '../types/lottery';
+import { Container } from './Container';
 
 interface TicketCheckerProps {
   userTickets: UserTicket[];
@@ -57,7 +58,7 @@ export const TicketChecker: React.FC<TicketCheckerProps> = ({
 
   return (
     <section id="verificador" className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container className="max-w-4xl">
         
         {/* Header da Consulta */}
         <div className="text-center mb-8 sm:mb-10">
@@ -192,7 +193,7 @@ export const TicketChecker: React.FC<TicketCheckerProps> = ({
             )}
           </div>
         )}
-      </div>
+      </Container>
     </section>
   );
 };

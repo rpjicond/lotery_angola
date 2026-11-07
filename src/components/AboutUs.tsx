@@ -1,10 +1,11 @@
 import React from 'react';
 import { ShieldCheck, Target, Building2 } from 'lucide-react';
+import { Container } from './Container';
 
 export const AboutUs: React.FC = () => {
   return (
     <section id="sobre-nos" className="py-14 sm:py-20 bg-white border-b border-slate-200 text-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">
@@ -52,7 +53,7 @@ export const AboutUs: React.FC = () => {
           </div>
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 };

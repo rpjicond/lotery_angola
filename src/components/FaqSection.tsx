@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Container } from './Container';
 
 export const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -33,7 +34,7 @@ export const FaqSection: React.FC = () => {
 
   return (
     <section id="duvidas" className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container className="max-w-4xl">
         
         {/* Header da Secção */}
         <div className="text-center mb-12">
@@ -81,7 +82,7 @@ export const FaqSection: React.FC = () => {
           })}
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 };

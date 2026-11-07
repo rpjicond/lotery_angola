@@ -15,6 +15,8 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
+import { Container } from './Container';
+
 interface NavbarProps {
   onOpenRegisterOrTicket: () => void;
   onNavigate: (sectionId: string) => void;
@@ -75,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           : 'bg-white/90 backdrop-blur-sm border-b border-slate-200/80 text-slate-900'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
+      <Container className="bg-transparent">
         <div className="flex items-center justify-between h-[74px] bg-transparent">
           
           {/* Brand Logo Zone */}
@@ -158,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Mobile Drawer Light Theme */}
       {mobileMenuOpen && (

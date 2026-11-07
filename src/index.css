@@ -12,13 +12,13 @@
   color-scheme: light;
 }
 
-/* Custom smooth scroll and print styles */
+/* Global smooth scroll and light theme body reset */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100%;
-  background-color: #040C1D;
-  color: #ffffff;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 body {
@@ -26,8 +26,13 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #040C1D;
-  color: #ffffff;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Ensure clean transparent container resets */
+section {
+  background-color: transparent;
 }
 
 @media print {
@@ -158,4 +163,3 @@ body {
   animation: travelAcrossEntireCity 14s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
   will-change: transform, opacity;
 }
-

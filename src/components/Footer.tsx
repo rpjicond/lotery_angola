@@ -7,6 +7,7 @@ import {
   Lock,
   ArrowRight,
 } from 'lucide-react';
+import { Container } from './Container';
 
 interface FooterProps {
   onNavigate: (id: string) => void;
@@ -25,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <footer id="contactos" className="bg-slate-100 text-slate-900 border-t border-slate-200 pt-12 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-200">
@@ -272,7 +273,7 @@ export const Footer: React.FC<FooterProps> = ({
 
         </div>
 
-      </div>
+      </Container>
 
       {/* Legal terms modal */}
       {modalContent && (

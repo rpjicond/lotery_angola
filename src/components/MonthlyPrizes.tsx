@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { LOTTERY_DRAWS } from '../data/lotteries';
 import { LotteryDraw } from '../types/lottery';
+import { Container } from './Container';
 
 interface MonthlyPrizesProps {
   onSelectDraw: (draw: LotteryDraw) => void;
@@ -33,7 +34,7 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
       
       {/* SEÇÃO 4: SELEÇÃO DE PRÉMIOS (Tabs & Spec Sheet) */}
       <section className="py-14 sm:py-20 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           
           {/* Header com Badge Pílula Unificado */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
@@ -218,12 +219,12 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
             )}
           </div>
 
-        </div>
+        </Container>
       </section>
 
       {/* SEÇÃO 5: CARTÕES DE DESTINOS (PORTUGAL / FRANÇA) em modo claro */}
       <section className="py-14 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           
           {/* Header da Secção de Destinos */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-6 border-b border-slate-200">
@@ -313,7 +314,7 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
             ))}
           </div>
 
-        </div>
+        </Container>
       </section>
 
     </div>

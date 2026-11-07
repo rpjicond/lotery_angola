@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { UserCheck, Ticket, Tv, ArrowRight } from 'lucide-react';
+import { Container } from './Container';
 
 interface HeroProps {
   onOpenParticipate: () => void;
@@ -90,14 +91,14 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Hero Airspace Container (Clean view of Paris & flying airplane) */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 pointer-events-none">
+        <Container className="relative z-10 py-16 sm:py-24 pointer-events-none">
           <div className="min-h-[220px] sm:min-h-[320px] lg:min-h-[380px]" />
-        </div>
+        </Container>
       </div>
 
       {/* SEÇÃO "COMO FUNCIONA": Minimalist Light Theme Timeline */}
       <div id="como-funciona" className="border-y border-slate-200 bg-slate-50 py-14 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container>
           
           {/* Header da Secção */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-slate-200">
@@ -167,7 +168,7 @@ export const Hero: React.FC<HeroProps> = ({
             })}
           </div>
 
-        </div>
+        </Container>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Play, RotateCcw, ShieldCheck, Trophy, CheckCircle } from 'lucide-react';
+import { Play, RotateCcw, Trophy, CheckCircle } from 'lucide-react';
 import { LOTTERY_DRAWS } from '../data/lotteries';
+import { Container } from './Container';
 
 export const LiveDrawRoom: React.FC = () => {
   const [selectedDrawId, setSelectedDrawId] = useState(LOTTERY_DRAWS[0].id);
@@ -71,7 +72,7 @@ export const LiveDrawRoom: React.FC = () => {
 
   return (
     <section id="extracao-ao-vivo" className="py-16 sm:py-20 bg-white border-t border-slate-200 text-slate-900 relative overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container className="relative">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -180,7 +181,7 @@ export const LiveDrawRoom: React.FC = () => {
           )}
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
+import { Container } from './Container';
 
 interface WinnersWallProps {
   onOpenLiveDraw: () => void;
@@ -57,7 +58,7 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
 
   return (
     <section id="vencedores" className="py-14 sm:py-20 bg-white border-b border-slate-200 text-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-slate-200">
@@ -127,7 +128,7 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
 
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 };
