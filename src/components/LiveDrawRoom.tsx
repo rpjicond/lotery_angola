@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Play, RotateCcw, Trophy, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Play, RotateCcw, Trophy, CheckCircle, ShieldCheck, Ticket } from 'lucide-react';
 import { LOTTERY_DRAWS } from '../data/lotteries';
 import { Container } from './Container';
 
@@ -8,25 +8,30 @@ export const LiveDrawRoom: React.FC = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [extractedBalls, setExtractedBalls] = useState<number[]>([]);
   const [currentStep, setCurrentStep] = useState(0);
+  const [liveCandidateTicket, setLiveCandidateTicket] = useState<string>('LVA-2026-89104');
   const [winningTicket, setWinningTicket] = useState<string | null>('LVA-2026-89104');
-  const [winnerInfo, setWinnerInfo] = useState<{
-    name: string;
-    province: string;
-    destination: string;
-  } | null>({
-    name: 'Jandira Mateus & Família',
-    province: 'Luanda (Kilamba)',
-    destination: 'Portugal (Universidade do Porto)',
-  });
+  const [winnerProvince, setWinnerProvince] = useState<string | null>('Luanda (Kilamba)');
 
   const currentDraw = LOTTERY_DRAWS.find((d) => d.id === selectedDrawId) || LOTTERY_DRAWS[0];
+
+  // Real-time cycling of candidate Ticket IDs during live extraction
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isDrawing) {
+      interval = setInterval(() => {
+        const randomNum = Math.floor(10000 + Math.random() * 90000);
+        setLiveCandidateTicket(`LVA-2026-${randomNum}`);
+      }, 120);
+    }
+    return () => clearInterval(interval);
+  }, [isDrawing]);
 
   const handleStartDraw = () => {
     setIsDrawing(true);
     setExtractedBalls([]);
     setCurrentStep(0);
     setWinningTicket(null);
-    setWinnerInfo(null);
+    setWinnerProvince(null);
 
     const targetDigits = [
       Math.floor(1 + Math.random() * 9),
@@ -45,48 +50,36 @@ export const LiveDrawRoom: React.FC = () => {
       if (step >= 5) {
         clearInterval(interval);
         setTimeout(() => {
-          const ticketString = `LVA-2026-${targetDigits.join('')}`;
-          setWinningTicket(ticketString);
+          const finalTicketString = `LVA-2026-${targetDigits.join('')}`;
+          setWinningTicket(finalTicketString);
+          setLiveCandidateTicket(finalTicketString);
 
-          const angolanNames = [
-            'Mateus Kiala de Carvalho',
-            'Esperança Domingos Nzuzi',
-            'Manuel Afonso Kapapelo',
-            'Helena Muachifi da Silva',
-            'Paulo Bento Ganga',
-            'Neusa Tchissola Chimuco',
-          ];
-          const provinces = ['Luanda', 'Benguela', 'Huambo', 'Huíla', 'Cabinda', 'Uíge'];
-
-          setWinnerInfo({
-            name: angolanNames[Math.floor(Math.random() * angolanNames.length)],
-            province: provinces[Math.floor(Math.random() * provinces.length)],
-            destination: currentDraw.destination,
-          });
+          const provinces = ['Luanda', 'Benguela', 'Huambo', 'Huíla', 'Cabinda', 'Uíge', 'Cuanza Sul'];
+          setWinnerProvince(provinces[Math.floor(Math.random() * provinces.length)]);
 
           setIsDrawing(false);
-        }, 800);
+        }, 600);
       }
-    }, 1200);
+    }, 1100);
   };
 
   return (
-    <section id="extracao-ao-vivo" className="py-16 sm:py-20 bg-white border-t border-slate-200 text-slate-900 relative overflow-hidden">
+    <section id="extracao-ao-vivo" className="py-14 sm:py-20 bg-white border-t border-slate-200 text-slate-900 relative overflow-hidden">
       <Container className="relative">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 border border-red-200 rounded-full text-xs font-bold text-red-700 mb-3">
             <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
-            <span>Sala de Extração Pública e Transparente</span>
+            <span>Sistema de Seleção de Candidatos em Tempo Real</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
-            Acompanhe o Sorteio das Esferas ao Vivo
+            Extração Pública de Bilhetes ao Vivo
           </h2>
 
-          <p className="mt-3 text-sm text-slate-600">
-            Cada esfera representa um dígito do bilhete vencedor. O sistema utiliza sementes criptográficas imutáveis para garantir 100% de transparência e auditoria pública.
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+            Acompanhe em tempo real a escolha dos bilhetes contemplados. Por motivos de proteção de dados e privacidade cívica, o sistema exibe publicamente apenas o <strong className="text-slate-900 font-bold">ID do Bilhete</strong>.
           </p>
         </div>
 
@@ -98,7 +91,7 @@ export const LiveDrawRoom: React.FC = () => {
               value={selectedDrawId}
               disabled={isDrawing}
               onChange={(e) => setSelectedDrawId(e.target.value)}
-              className="w-full sm:w-auto bg-white border border-slate-300 text-xs font-semibold text-slate-900 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400"
+              className="w-full sm:w-auto bg-white border border-slate-300 text-xs font-semibold text-slate-900 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-200 ease-in-out cursor-pointer"
             >
               {LOTTERY_DRAWS.map((draw) => (
                 <option key={draw.id} value={draw.id}>
@@ -113,10 +106,10 @@ export const LiveDrawRoom: React.FC = () => {
               type="button"
               onClick={handleStartDraw}
               disabled={isDrawing}
-              className={`w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
+              className={`w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 ease-in-out flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
                 isDrawing
-                  ? 'bg-slate-300 text-slate-500 cursor-not-allowed'
-                  : 'bg-[#FACC15] hover:bg-yellow-400 text-slate-950'
+                  ? 'bg-slate-200 text-slate-500 cursor-not-allowed'
+                  : 'bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 hover:scale-[1.02] active:scale-[0.98] text-slate-950'
               }`}
             >
               {isDrawing ? (
@@ -127,20 +120,34 @@ export const LiveDrawRoom: React.FC = () => {
               ) : (
                 <>
                   <Play className="w-4 h-4 fill-current" />
-                  <span>Simular Sorteio ao Vivo</span>
+                  <span>Simular Seleção de Candidato</span>
                 </>
               )}
             </button>
           </div>
         </div>
 
-        {/* Sphere Extraction Chamber display */}
-        <div className="max-w-4xl mx-auto bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl text-white text-center">
-          <div className="text-xs font-bold text-[#FACC15] uppercase tracking-wider mb-6">
-            Globo Auditado Oficial · {currentDraw.destination}
+        {/* Crisp Light Extraction Chamber (No blue background noise) */}
+        <div className="max-w-4xl mx-auto bg-slate-50 rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm text-slate-900 text-center">
+          
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">
+              Globo Auditado Oficial · {currentDraw.destination}
+            </span>
           </div>
 
-          {/* Spheres display */}
+          {/* Real-time Ticket ID Candidate Selector Ticker */}
+          <div className="my-4 py-3 px-4 bg-white border border-slate-200 rounded-xl inline-flex items-center gap-3 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-500">
+              <Ticket className="w-4 h-4 text-amber-500 shrink-0" />
+              <span>Candidato em Processamento:</span>
+            </div>
+            <span className={`font-mono text-base sm:text-lg font-black tracking-wider transition-all duration-100 ${isDrawing ? 'text-amber-600 scale-105' : 'text-slate-900'}`}>
+              {liveCandidateTicket}
+            </span>
+          </div>
+
+          {/* Spheres display in Light Theme */}
           <div className="flex items-center justify-center gap-3 sm:gap-6 my-6 min-h-[80px]">
             {[1, 2, 3, 4, 5].map((index) => {
               const ballValue = extractedBalls[index - 1];
@@ -148,10 +155,10 @@ export const LiveDrawRoom: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-mono text-xl sm:text-2xl font-black transition-all duration-300 shadow-md ${
+                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center font-mono text-xl sm:text-2xl font-black transition-all duration-300 shadow-sm ${
                     ballValue !== undefined
-                      ? 'bg-gradient-to-br from-[#FACC15] to-amber-500 text-slate-950 scale-105 ring-4 ring-[#FACC15]/30'
-                      : 'bg-slate-800 text-slate-500 border border-slate-700'
+                      ? 'bg-[#FACC15] text-slate-950 border-2 border-amber-400 scale-105 shadow-md'
+                      : 'bg-white text-slate-400 border border-slate-200'
                   }`}
                 >
                   {ballValue !== undefined ? ballValue : '?'}
@@ -160,23 +167,40 @@ export const LiveDrawRoom: React.FC = () => {
             })}
           </div>
 
-          {/* Winner announcement box */}
-          {winningTicket && winnerInfo && (
-            <div className="mt-8 p-6 bg-slate-800/90 border border-slate-700 rounded-xl text-left animate-in fade-in duration-300">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-2">
-                <Trophy className="w-5 h-5" />
-                <span>BILHETE CONTEMPLADO COM SUCESSO!</span>
+          {/* Winner announcement box (Strictly Ticket ID & Province, NO PUBLIC NAMES) */}
+          {winningTicket && winnerProvince && (
+            <div className="mt-8 p-6 bg-white border-2 border-emerald-300 rounded-2xl text-left shadow-sm animate-in fade-in duration-300">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div className="flex items-center gap-2 text-emerald-700 font-bold text-sm">
+                  <Trophy className="w-5 h-5 text-amber-500 shrink-0" />
+                  <span>ID DO BILHETE CONTEMPLADO EM TEMPO REAL</span>
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                  VALIDADO PELO ISJ
+                </span>
               </div>
-              <div className="text-2xl font-black font-mono text-[#FACC15] mb-1">
-                {winningTicket}
+
+              <div className="my-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <span className="text-[11px] font-bold text-slate-400 uppercase block">Código Único do Bilhete:</span>
+                  <div className="text-2xl sm:text-3xl font-black font-mono text-slate-950 tracking-tight">
+                    {winningTicket}
+                  </div>
+                </div>
+                <div className="text-left sm:text-right">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase block">Província do Contemplado:</span>
+                  <span className="text-sm font-bold text-slate-800">{winnerProvince}</span>
+                </div>
               </div>
-              <p className="text-xs text-slate-300">
-                Titular: <strong className="text-white">{winnerInfo.name}</strong> · Província: <strong className="text-white">{winnerInfo.province}</strong>
-              </p>
-              <p className="text-[11px] text-emerald-400 mt-2 flex items-center gap-1 font-semibold">
-                <CheckCircle className="w-3.5 h-3.5" />
-                <span>Semente Hash imutável verificada. Cobertura consular financiada a 100%.</span>
-              </p>
+
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 space-y-1.5 font-normal">
+                <div className="flex items-start gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>
+                    <strong className="text-slate-900 font-bold">Proteção de Dados Civis:</strong> O nome do titular não é exibido publicamente para garantir a privacidade. O vencedor é notificado de forma direta e privada pela equipa da LVA.
+                  </span>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -185,3 +209,4 @@ export const LiveDrawRoom: React.FC = () => {
     </section>
   );
 };
+

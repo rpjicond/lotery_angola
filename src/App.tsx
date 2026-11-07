@@ -116,6 +116,9 @@ export default function App() {
           onSelectStep={handleSelectStep}
         />
 
+        {/* Subtle horizontal gradient separator */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+
         {/* Prêmios do Mês (Green Icon Row & Draw Cards) */}
         <MonthlyPrizes
           onSelectDraw={(draw) => {
@@ -125,6 +128,9 @@ export default function App() {
           onOpenTicket={handleOpenRegisterOrTicket}
         />
 
+        {/* Subtle horizontal gradient separator */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+
         {/* Testemunhos de Vencedores + Sorteio Ao Vivo Widget */}
         <WinnersWall
           onOpenLiveDraw={() => {
@@ -133,17 +139,29 @@ export default function App() {
           }}
         />
 
+        {/* Subtle horizontal gradient separator */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+
         {/* Consulta Pública de Bilhetes */}
         <TicketChecker
           userTickets={tickets}
           onSelectTicketToView={(t) => setViewingTicket(t)}
         />
 
+        {/* Subtle horizontal gradient separator */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+
         {/* Sala de Extração de Sorteio ao Vivo com Globo de Esferas */}
         <LiveDrawRoom />
 
+        {/* Subtle horizontal gradient separator */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+
         {/* Sobre Nós */}
         <AboutUs />
+
+        {/* Subtle horizontal gradient separator */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
         {/* Perguntas Frequentes (FAQ) */}
         <FaqSection />

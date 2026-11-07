@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LotteryDraw } from '../types/lottery';
 import { Check, Sparkles, Plus, ChevronDown, ChevronUp, Clock, Users } from 'lucide-react';
+import { DrawCountdown } from './DrawCountdown';
 
 interface LotteryCardProps {
   draw: LotteryDraw;
@@ -88,7 +89,8 @@ export const LotteryCard: React.FC<LotteryCardProps> = ({
                     <span>Ver lista completa ({draw.packageIncludes.length - 3} mais itens)</span>
                     <ChevronDown className="w-3.5 h-3.5" />
                   </>
-                )}
+                )
+                }
               </button>
             )}
           </div>
@@ -96,8 +98,8 @@ export const LotteryCard: React.FC<LotteryCardProps> = ({
       </div>
 
       {/* Card Footer & Action Buttons */}
-      <div className="p-6 pt-0 border-t border-slate-100 bg-white">
-        <div className="flex items-center justify-between text-xs text-slate-500 pt-4 pb-4">
+      <div className="p-6 pt-0 border-t border-slate-100 bg-white space-y-3">
+        <div className="flex items-center justify-between text-xs text-slate-500 pt-4">
           <div className="flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-slate-400" />
             <span className="font-semibold text-slate-700 tabular-nums">{draw.totalRegistered.toLocaleString('pt-AO')}</span>
@@ -105,6 +107,9 @@ export const LotteryCard: React.FC<LotteryCardProps> = ({
           </div>
           <span className="font-medium text-slate-600">{draw.nextDrawDate}</span>
         </div>
+
+        {/* Real-time Countdown Timer Bar */}
+        <DrawCountdown targetTimestamp={draw.drawTargetTimestamp} />
 
         <div className="grid grid-cols-2 gap-2.5">
           <button

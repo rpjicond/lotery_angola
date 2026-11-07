@@ -11,6 +11,7 @@ import {
 import { LOTTERY_DRAWS } from '../data/lotteries';
 import { LotteryDraw } from '../types/lottery';
 import { Container } from './Container';
+import { DrawCountdown } from './DrawCountdown';
 
 interface MonthlyPrizesProps {
   onSelectDraw: (draw: LotteryDraw) => void;
@@ -292,14 +293,22 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   </div>
                 </div>
 
-                {/* Data da Extração & Botão CTA */}
-                <div className="pt-5 border-t border-slate-100">
-                  <div className="flex items-center gap-2 text-xs text-slate-600 mb-4 font-normal">
-                    <Calendar className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                    <span>
-                      Próxima extração: <strong className="text-slate-900 font-semibold">{draw.nextDrawDate}</strong>
+                {/* Data da Extração, Real-time Countdown & Botão CTA */}
+                <div className="pt-5 border-t border-slate-100 space-y-3">
+                  <div className="flex items-center justify-between text-xs text-slate-600 font-normal">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                      <span>
+                        Próxima extração: <strong className="text-slate-900 font-semibold">{draw.nextDrawDate}</strong>
+                      </span>
+                    </div>
+                    <span className="font-mono text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                      Sorteio #{draw.drawNumber}
                     </span>
                   </div>
+
+                  {/* Real-time Countdown Timer Bar */}
+                  <DrawCountdown targetTimestamp={draw.drawTargetTimestamp} />
 
                   <button
                     type="button"
