@@ -133,11 +133,11 @@ export const Hero: React.FC<HeroProps> = ({
               <div>
                 {/* Header: Glowing Icon & Step Pill */}
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#E5A800] text-slate-950 flex items-center justify-center font-black shadow-[0_4px_16px_rgba(255,222,0,0.35)] shrink-0 group-hover:scale-110 transition-transform">
-                      <UserCheck className="w-5 h-5 stroke-[2.5]" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center font-black shadow-md shrink-0 group-hover:bg-white group-hover:text-[#0B2C69] group-hover:scale-105 transition-all">
+                      <UserCheck className="w-6 h-6 stroke-[2.2]" />
                     </div>
-                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
+                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3.5 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
                       PASSO 1: REGISTE-SE
                     </span>
                   </div>
@@ -179,11 +179,11 @@ export const Hero: React.FC<HeroProps> = ({
               <div>
                 {/* Header: Glowing Icon & Step Pill */}
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#E5A800] text-slate-950 flex items-center justify-center font-black shadow-[0_4px_16px_rgba(255,222,0,0.35)] shrink-0 group-hover:scale-110 transition-transform">
-                      <Ticket className="w-5 h-5 stroke-[2.5]" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center font-black shadow-md shrink-0 group-hover:bg-white group-hover:text-[#0B2C69] group-hover:scale-105 transition-all">
+                      <Ticket className="w-6 h-6 stroke-[2.2]" />
                     </div>
-                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
+                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3.5 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
                       PASSO 2: COMPRE O BILHETE
                     </span>
                   </div>
@@ -225,11 +225,11 @@ export const Hero: React.FC<HeroProps> = ({
               <div>
                 {/* Header: Glowing Icon & Step Pill */}
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#E5A800] text-slate-950 flex items-center justify-center font-black shadow-[0_4px_16px_rgba(255,222,0,0.35)] shrink-0 group-hover:scale-110 transition-transform">
-                      <Tv className="w-5 h-5 stroke-[2.5]" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center font-black shadow-md shrink-0 group-hover:bg-white group-hover:text-[#0B2C69] group-hover:scale-105 transition-all">
+                      <Tv className="w-6 h-6 stroke-[2.2]" />
                     </div>
-                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
+                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3.5 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
                       PASSO 3: PARTICIPE NO SORTEIO
                     </span>
                   </div>
