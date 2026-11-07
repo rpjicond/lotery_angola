@@ -13,6 +13,7 @@ import { BuyTicketModal } from './components/BuyTicketModal';
 import { DigitalTicketView } from './components/DigitalTicketView';
 import { MyTicketsModal } from './components/MyTicketsModal';
 import { LoadingScreen } from './components/LoadingScreen';
+import { LoginPage } from './components/LoginPage';
 import { LOTTERY_DRAWS, INITIAL_USER_TICKETS } from './data/lotteries';
 import { LotteryDraw, UserTicket } from './types/lottery';
 import { Check } from 'lucide-react';
@@ -29,12 +30,24 @@ export default function App() {
   });
 
   const [activeSection, setActiveSection] = useState('hero');
+  const [currentHash, setCurrentHash] = useState<string>(window.location.hash);
   const [freeModalOpen, setFreeModalOpen] = useState(false);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const [myTicketsOpen, setMyTicketsOpen] = useState(false);
   const [selectedDrawForAction, setSelectedDrawForAction] = useState<LotteryDraw>(LOTTERY_DRAWS[0]);
   const [viewingTicket, setViewingTicket] = useState<UserTicket | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Basic hash routing listener
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   useEffect(() => {
     try {
@@ -78,12 +91,30 @@ export default function App() {
   };
 
   const handleNavigate = (sectionId: string) => {
+    if (window.location.hash) {
+      window.location.hash = '';
+    }
     setActiveSection(sectionId);
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // If hash is #login, render LoginPage
+  if (currentHash === '#login') {
+    return (
+      <LoginPage
+        onLoginSuccess={(name, bi) => {
+          showToast(`Sessão iniciada com sucesso para ${name} (${bi})!`);
+          window.location.hash = '';
+        }}
+        onBackToHome={() => {
+          window.location.hash = '';
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#FACC15] selection:text-slate-950">
