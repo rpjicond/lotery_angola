@@ -31,6 +31,34 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D] via-transparent to-[#040C1D]/50 pointer-events-none" />
         </div>
 
+        {/* Full Airspace Layer: O Avião Comercial a Viajar Ativamente por Toda a Cidade de Paris */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+          <div
+            onClick={onOpenParticipate}
+            className="absolute top-[10%] sm:top-[14%] left-0 w-[240px] min-[400px]:w-[300px] sm:w-[420px] lg:w-[520px] pointer-events-auto cursor-pointer animate-travel-city"
+            title="Clique para participar no Sorteio Oficial da LVA e voar para Paris"
+          >
+            <div className="relative w-full">
+              {/* Jet Contrails / Rastros de Condensação a sair dos motores */}
+              <div className="absolute left-[4%] bottom-[24%] w-[44%] h-2.5 bg-gradient-to-r from-transparent via-white/40 to-white/70 blur-[2px] rounded-full -rotate-[22deg] pointer-events-none animate-contrail opacity-75" />
+              <div className="absolute left-[18%] bottom-[38%] w-[38%] h-2 bg-gradient-to-r from-transparent via-amber-200/40 to-white/60 blur-[2px] rounded-full -rotate-[22deg] pointer-events-none animate-contrail opacity-65" />
+
+              {/* Main Airplane Image */}
+              <img
+                src="/assets/lva/aviao_voando_transparente.png"
+                alt="Avião comercial internacional a viajar pela cidade de Paris"
+                className="relative z-10 w-full object-contain drop-shadow-[0_28px_55px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300"
+                referrerPolicy="no-referrer"
+              />
+
+              {/* Anti-collision Strobe & Navigation Beacons */}
+              <div className="absolute top-[28%] right-[22%] w-2 h-2 rounded-full bg-white shadow-[0_0_12px_#ffffff] animate-strobe-flash pointer-events-none z-20" />
+              <div className="absolute bottom-[28%] left-[16%] w-2 h-2 rounded-full bg-red-500 shadow-[0_0_10px_#ef4444] animate-nav-beacon pointer-events-none z-20" />
+              <div className="absolute top-[38%] right-[9%] w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#10b981] animate-nav-beacon pointer-events-none z-20" />
+            </div>
+          </div>
+        </div>
+
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
             
@@ -68,46 +96,8 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Palanca Negra Gigante with transparent background holding passport */}
-            <div className="lg:col-span-6 flex justify-center lg:justify-end z-10 mt-1 sm:mt-0">
-              <div
-                onClick={onOpenParticipate}
-                className="relative group cursor-pointer flex flex-col items-center justify-center max-w-[620px] sm:max-w-[700px] lg:max-w-[800px] w-full"
-                title="Clique para participar no Sorteio Oficial da LVA"
-              >
-                {/* Subtle golden & navy glow behind character */}
-                <div className="absolute inset-0 bg-radial from-[#FBBF24]/35 via-[#1E4B94]/25 to-transparent blur-3xl rounded-full transform scale-105 pointer-events-none group-hover:from-[#FBBF24]/50 transition-all duration-500" />
-
-                {/* Palanca Negra Gigante holding Angolan passport with transparent background */}
-                <img
-                  src="/assets/lva/palanca_transparente.png"
-                  alt="Palanca Negra Gigante em fato executivo exibindo o Passaporte de Angola com fundo transparente"
-                  className="relative z-10 w-full max-h-[520px] min-[400px]:max-h-[580px] sm:max-h-[780px] lg:max-h-[840px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.98)] filter hover:brightness-105 transition-all duration-300 transform group-hover:scale-102"
-                />
-
-                {/* Mobile Text & CTA Block positioned directly under Palanca image */}
-                <div className="block sm:hidden text-center mt-3 pb-2 px-2 z-20">
-                  <h1 className="text-xl min-[380px]:text-2xl font-black uppercase tracking-tight leading-tight font-display drop-shadow-[0_4px_15px_rgba(0,0,0,0.95)]">
-                    <span className="block text-[#FFDE00] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                      CANSADO DE BUROCRACIA?
-                    </span>
-                    <span className="block text-white mt-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-                      GANHE TRATAMENTO DE VISTO <span className="text-[#FFDE00]">GRATUITO!</span>
-                    </span>
-                  </h1>
-
-                  <div className="mt-4 flex justify-center">
-                    <button
-                      type="button"
-                      onClick={onOpenParticipate}
-                      className="w-full inline-flex items-center justify-center px-6 py-3.5 text-xs font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] active:bg-amber-500 rounded-full transition-all shadow-[0_8px_25px_rgba(255,222,0,0.4)] active:scale-95 cursor-pointer uppercase tracking-tight"
-                    >
-                      <span>QUERO PARTICIPAR AGORA!</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Right Column: Espaço Aéreo Aberto */}
+            <div className="lg:col-span-6 min-h-[180px] sm:min-h-[300px] pointer-events-none" />
 
           </div>
         </div>
