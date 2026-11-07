@@ -15,19 +15,20 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Background with futuristic Angolan golden waves and national emblem */}
       <div className="relative min-h-[640px] min-[400px]:min-h-[720px] sm:min-h-[780px] lg:min-h-[840px] flex items-center pt-[105px] sm:pt-[118px] lg:pt-[128px]">
         
-        {/* Angolan Golden Waves & Emblem Background - picture tag with mobile and desktop assets */}
+        {/* Real Paris City Background - picture tag with mobile and desktop authentic city photography */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <picture className="w-full h-full">
-            <source media="(max-width: 639px)" srcSet="/assets/lva/angola_golden_waves_mobile.jpg" />
+            <source media="(max-width: 639px)" srcSet="/assets/lva/paris_city_mobile.jpg" />
             <img
-              src="/assets/lva/angola_golden_waves_emblem.jpg"
-              alt="Ondas Douradas da Rede Futurista Angolana com Emblema Nacional"
-              className="w-full h-full object-cover object-center opacity-100 filter brightness-[1.10] contrast-[1.05]"
+              src="/assets/lva/paris_city_desktop.jpg"
+              alt="Fotografia Real da Cidade de Paris - Fundo Oficial LVA"
+              className="w-full h-full object-cover object-center opacity-95 filter brightness-[1.04] contrast-[1.04]"
+              referrerPolicy="no-referrer"
             />
           </picture>
-          {/* Light gradient vignette to blend seamlessly while keeping background vivid and bright */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#040C1D]/30 via-transparent to-[#040C1D]/15 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D] via-transparent to-transparent pointer-events-none" />
+          {/* Subtle gradient vignette to blend seamlessly while keeping the real city photo vivid */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040C1D]/65 via-[#040C1D]/20 to-[#040C1D]/35 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#040C1D] via-transparent to-[#040C1D]/50 pointer-events-none" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">

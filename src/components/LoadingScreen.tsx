@@ -68,11 +68,12 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       {/* Responsive Background: Mobile asset for phones, PC asset for desktop */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <picture className="w-full h-full">
-          <source media="(max-width: 639px)" srcSet="/assets/lva/angola_golden_waves_mobile.jpg" />
+          <source media="(max-width: 639px)" srcSet="/assets/lva/paris_city_mobile.jpg" />
           <img
-            src="/assets/lva/angola_golden_waves_emblem.jpg"
-            alt="Ondas Douradas da Rede Futurista Angolana"
+            src="/assets/lva/paris_city_desktop.jpg"
+            alt="Fotografia Real da Cidade de Paris - LVA"
             className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.08] opacity-90"
+            referrerPolicy="no-referrer"
           />
         </picture>
         {/* Dark navy overlay vignette to enhance text readability */}
