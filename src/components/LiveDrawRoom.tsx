@@ -203,6 +203,48 @@ export const LiveDrawRoom: React.FC = () => {
               </div>
             </div>
           )}
+
+          {/* Tabela de Números e Dígitos Selecionados em Tempo Real */}
+          <div className="mt-8">
+            <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3 text-left">
+              Registo de Extração e Números Selecionados
+            </h4>
+            <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-xs">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-100 text-slate-700 uppercase text-[10px] tracking-wider font-bold border-b border-slate-200">
+                  <tr>
+                    <th className="py-3 px-4">Ordem</th>
+                    <th className="py-3 px-4">Dígito da Esfera</th>
+                    <th className="py-3 px-4">ID do Bilhete Parcial</th>
+                    <th className="py-3 px-4">Estado da Semente</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-mono">
+                  {extractedBalls.length > 0 ? (
+                    extractedBalls.map((digit, i) => (
+                      <tr key={i} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-2.5 px-4 font-bold text-slate-500">0{i + 1}</td>
+                        <td className="py-2.5 px-4 font-black text-amber-600 text-sm">{digit}</td>
+                        <td className="py-2.5 px-4 text-slate-800">
+                          LVA-2026-{extractedBalls.slice(0, i + 1).join('')}
+                          {i < 4 ? '...' : ''}
+                        </td>
+                        <td className="py-2.5 px-4 text-emerald-600 font-sans font-semibold text-[11px]">
+                          Auditado ISJ
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={4} className="py-6 text-center text-slate-400 font-sans text-xs italic">
+                        Clique em "Simular Seleção de Candidato" para iniciar a extração das esferas...
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
       </Container>
