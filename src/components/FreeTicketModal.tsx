@@ -223,7 +223,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
               <select
                 value={selectedDrawId}
                 onChange={(e) => setSelectedDrawId(e.target.value)}
-                className="w-full text-xs font-medium border border-slate-300 rounded-xl px-3 py-2.5 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full text-xs font-medium border border-slate-300 rounded-xl px-3 py-2.5 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
               >
                 {LOTTERY_DRAWS.map((draw) => (
                   <option key={draw.id} value={draw.id}>
@@ -243,7 +243,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Ex: Manuel António da Costa"
-                className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                 required
               />
             </div>
@@ -260,7 +260,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
                   onChange={(e) => setBiNumber(e.target.value.toUpperCase())}
                   placeholder="007891234LA042"
                   maxLength={14}
-                  className="w-full text-xs font-mono border border-slate-300 rounded-xl px-3 py-2.5 uppercase focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full text-xs font-mono border border-slate-300 rounded-xl px-3 py-2.5 uppercase focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                   required
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">14 dígitos (Ex: 004...LA041)</span>
@@ -275,7 +275,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="923 123 456"
-                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                   required
                 />
                 <span className="text-[10px] text-slate-400 mt-0.5 block">Para contacto se for sorteado</span>
@@ -291,7 +291,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
                 <select
                   value={province}
                   onChange={(e) => setProvince(e.target.value)}
-                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                 >
                   {PROVINCES_OF_ANGOLA.map((prov) => (
                     <option key={prov} value={prov}>
@@ -308,7 +308,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
                 <select
                   value={purpose}
                   onChange={(e) => setPurpose(e.target.value)}
-                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                 >
                   <option value="Estudos Superiores / Formação">Estudos / Universidade</option>
                   <option value="Trabalho / Emprego Especializado">Trabalho / Procura de Emprego</option>
@@ -325,7 +325,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
                   type="checkbox"
                   checked={agreedTerms}
                   onChange={(e) => setAgreedTerms(e.target.checked)}
-                  className="mt-0.5 rounded border-slate-300 text-amber-500 focus:ring-amber-400"
+                  className="mt-0.5 rounded border-slate-300 text-amber-500 focus:ring-amber-400 transition-all duration-200 ease-in-out"
                 />
                 <span>
                   Declaro ser cidadão angolano, que os dados correspondem ao meu documento e aceito o regulamento transparente do sorteio.
@@ -338,7 +338,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 px-4 text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 disabled:opacity-50 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 px-4 text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 disabled:opacity-50 rounded-xl transition-all duration-200 ease-in-out hover:scale-[1.01] active:scale-[0.98] shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
               >
                 {isSubmitting ? (
                   <span>A emitir bilhete oficial...</span>

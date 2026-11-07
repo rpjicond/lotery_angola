@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({
               <img
                 src="/assets/lva/aviao_voando_transparente.png"
                 alt="Avião comercial internacional"
-                className="relative z-10 w-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:scale-[1.02]"
+                className="relative z-10 w-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-transform duration-300 ease-in-out hover:scale-[1.04]"
                 referrerPolicy="no-referrer"
               />
 
@@ -128,25 +128,25 @@ export const Hero: React.FC<HeroProps> = ({
                     setActiveStep(step.id);
                     onSelectStep(step.id);
                   }}
-                  className={`group relative flex flex-col justify-between p-6 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                  className={`group relative flex flex-col justify-between p-6 rounded-2xl border transition-all duration-200 ease-in-out cursor-pointer ${
                     isActive
-                      ? 'bg-white border-amber-400 shadow-md scale-[1.01]'
-                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 shadow-sm'
+                      ? 'bg-white border-amber-400 shadow-md scale-[1.01] -translate-y-1'
+                      : 'bg-white border-slate-200 hover:border-amber-300 hover:bg-white hover:shadow-md hover:-translate-y-1 active:scale-[0.99]'
                   }`}
                 >
                   <div>
                     {/* Top Step Number & Clean Icon */}
                     <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
-                      <span className="font-mono text-xs font-black text-amber-600 tracking-widest uppercase">
+                      <span className="font-mono text-xs font-black text-amber-600 tracking-widest uppercase transition-colors duration-200 ease-in-out group-hover:text-amber-500">
                         Passo {step.num}
                       </span>
-                      <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors">
-                        <Icon className="w-4.5 h-4.5 stroke-[1.8]" />
+                      <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors duration-200 ease-in-out">
+                        <Icon className="w-4.5 h-4.5 stroke-[1.8] transition-transform duration-200 ease-in-out group-hover:scale-110" />
                       </div>
                     </div>
 
                     {/* Step Title & Subtitle */}
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight transition-colors duration-200 ease-in-out group-hover:text-slate-950">
                       {step.title}
                     </h3>
                     <p className="text-xs sm:text-sm font-semibold text-slate-700 mt-1">
@@ -159,9 +159,9 @@ export const Hero: React.FC<HeroProps> = ({
                   </div>
 
                   {/* Clean Action Link */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">
                     <span>{step.actionText}</span>
-                    <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-200 ease-in-out" />
                   </div>
                 </div>
               );

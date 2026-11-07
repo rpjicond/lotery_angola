@@ -62,13 +62,13 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 ease-in-out cursor-pointer ${
                     isActive
-                      ? 'bg-white text-slate-950 shadow-sm border border-slate-200'
-                      : 'text-slate-600 hover:text-slate-950'
+                      ? 'bg-white text-slate-950 shadow-sm border border-slate-200 scale-[1.01]'
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100/80'
                   }`}
                 >
-                  <Icon className="w-4 h-4 stroke-[2]" />
+                  <Icon className="w-4 h-4 stroke-[2] transition-transform duration-200 ease-in-out" />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -76,7 +76,7 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
           </div>
 
           {/* Cartão Principal com fundo branco */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm text-slate-900">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out text-slate-900">
             {activeTab === 'passagens' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8 space-y-4">
@@ -127,10 +127,10 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   <button
                     type="button"
                     onClick={onOpenTicket}
-                    className="w-full mt-6 py-3.5 px-6 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider shadow-sm"
+                    className="w-full mt-6 py-3.5 px-6 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-md cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
                   >
                     <span>CONCORRER COM 500 KZ</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   </button>
                 </div>
               </div>
@@ -168,10 +168,10 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   <button
                     type="button"
                     onClick={onOpenTicket}
-                    className="w-full py-3.5 px-6 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider shadow-sm"
+                    className="w-full py-3.5 px-6 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-md cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
                   >
                     <span>CONCORRER COM 500 KZ</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   </button>
                 </div>
               </div>
@@ -209,10 +209,10 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   <button
                     type="button"
                     onClick={onOpenTicket}
-                    className="w-full py-3.5 px-6 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider shadow-sm"
+                    className="w-full py-3.5 px-6 rounded-xl font-black text-xs sm:text-sm text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-md cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
                   >
                     <span>CONCORRER COM 500 KZ</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   </button>
                 </div>
               </div>
@@ -246,17 +246,17 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
             {LOTTERY_DRAWS.map((draw) => (
               <div
                 key={draw.id}
-                className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:border-slate-300 shadow-sm hover:shadow-md text-slate-900"
+                className="group bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 ease-in-out hover:border-amber-400/80 hover:-translate-y-1 shadow-sm hover:shadow-xl text-slate-900"
               >
                 <div>
                   {/* Top Header */}
                   <div className="flex justify-between items-start gap-4 pb-5 border-b border-slate-100">
                     <div className="flex items-center gap-3">
-                      <span className="text-3xl sm:text-4xl select-none shrink-0" role="img" aria-label={draw.destination}>
+                      <span className="text-3xl sm:text-4xl select-none shrink-0 transition-transform duration-200 ease-in-out group-hover:scale-110" role="img" aria-label={draw.destination}>
                         {draw.flag}
                       </span>
                       <div>
-                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight transition-colors duration-200 ease-in-out group-hover:text-amber-600">
                           {draw.destination.split('(')[0].trim()}
                         </h3>
                         <span className="text-xs text-slate-600 font-medium block mt-0.5">
@@ -274,7 +274,7 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   </div>
 
                   {/* Destaque do Benefício */}
-                  <div className="my-5 p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800">
+                  <div className="my-5 p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 transition-colors duration-200 ease-in-out group-hover:bg-amber-50/50 group-hover:border-amber-200">
                     <strong className="text-slate-950 font-bold">Destaque:</strong> {draw.highlightBenefit}
                   </div>
 
@@ -304,10 +304,10 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   <button
                     type="button"
                     onClick={() => onSelectDraw(draw)}
-                    className="w-full py-3.5 px-6 text-xs sm:text-sm font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 rounded-xl transition-all duration-200 cursor-pointer text-center uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm"
+                    className="w-full py-3.5 px-6 text-xs sm:text-sm font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 rounded-xl transition-all duration-200 ease-in-out hover:scale-[1.01] active:scale-[0.98] hover:shadow-md cursor-pointer text-center uppercase tracking-wider flex items-center justify-center gap-2"
                   >
                     <span>PARTICIPAR NESTE VISTO</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1.5" />
                   </button>
                 </div>
               </div>

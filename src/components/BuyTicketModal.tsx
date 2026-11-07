@@ -153,9 +153,9 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                     key={qty}
                     type="button"
                     onClick={() => setTicketQuantity(qty)}
-                    className={`py-2 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
+                    className={`py-2 text-xs font-bold rounded-xl border transition-all duration-200 ease-in-out cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
                       ticketQuantity === qty
-                        ? 'bg-amber-400 text-slate-950 border-amber-500 shadow-sm'
+                        ? 'bg-amber-400 text-slate-950 border-amber-500 shadow-sm scale-[1.02]'
                         : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                     }`}
                   >
@@ -179,7 +179,7 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
                   placeholder="Nome completo conforme no BI"
-                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                   required
                 />
               </div>
@@ -194,7 +194,7 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                     value={buyerBI}
                     onChange={(e) => setBuyerBI(e.target.value.toUpperCase())}
                     placeholder="007891234LA042"
-                    className="w-full text-xs font-mono border border-slate-300 rounded-xl px-3 py-2.5 uppercase focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full text-xs font-mono border border-slate-300 rounded-xl px-3 py-2.5 uppercase focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                     required
                   />
                 </div>
@@ -207,7 +207,7 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                     value={buyerPhone}
                     onChange={(e) => setBuyerPhone(e.target.value)}
                     placeholder="923 000 000"
-                    className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-200 ease-in-out"
                   />
                 </div>
               </div>
@@ -223,9 +223,9 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setMethod('mcx')}
-                  className={`p-2.5 sm:p-3 text-center rounded-xl border flex flex-col items-center gap-1 sm:gap-1.5 cursor-pointer transition-all ${
+                  className={`p-2.5 sm:p-3 text-center rounded-xl border flex flex-col items-center gap-1 sm:gap-1.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] ${
                     method === 'mcx'
-                      ? 'border-red-500 bg-red-50/50 text-red-700 ring-2 ring-red-400'
+                      ? 'border-red-500 bg-red-50/50 text-red-700 ring-2 ring-red-400 scale-[1.02]'
                       : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -236,9 +236,9 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setMethod('ref')}
-                  className={`p-2.5 sm:p-3 text-center rounded-xl border flex flex-col items-center gap-1 sm:gap-1.5 cursor-pointer transition-all ${
+                  className={`p-2.5 sm:p-3 text-center rounded-xl border flex flex-col items-center gap-1 sm:gap-1.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] ${
                     method === 'ref'
-                      ? 'border-blue-500 bg-blue-50/50 text-blue-700 ring-2 ring-blue-400'
+                      ? 'border-blue-500 bg-blue-50/50 text-blue-700 ring-2 ring-blue-400 scale-[1.02]'
                       : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -249,9 +249,9 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setMethod('unitel')}
-                  className={`p-2.5 sm:p-3 text-center rounded-xl border flex flex-col items-center gap-1 sm:gap-1.5 cursor-pointer transition-all ${
+                  className={`p-2.5 sm:p-3 text-center rounded-xl border flex flex-col items-center gap-1 sm:gap-1.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] ${
                     method === 'unitel'
-                      ? 'border-orange-500 bg-orange-50/50 text-orange-700 ring-2 ring-orange-400'
+                      ? 'border-orange-500 bg-orange-50/50 text-orange-700 ring-2 ring-orange-400 scale-[1.02]'
                       : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -261,7 +261,7 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
               </div>
 
               {/* Method Specific Details */}
-              <div className="mt-3 p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs">
+              <div className="mt-3 p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs transition-all duration-200 ease-in-out">
                 {method === 'mcx' && (
                   <div className="space-y-2">
                     <p className="font-semibold text-slate-800">
@@ -290,7 +290,7 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
                     <button
                       type="button"
                       onClick={handleCopyRef}
-                      className="mt-2 w-full py-1.5 text-[11px] font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg flex items-center justify-center gap-1.5 hover:bg-slate-100 cursor-pointer"
+                      className="mt-2 w-full py-1.5 text-[11px] font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg flex items-center justify-center gap-1.5 hover:bg-slate-100 cursor-pointer transition-all duration-200 ease-in-out active:scale-95"
                     >
                       {copiedRef ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedRef ? 'Dados Copiados!' : 'Copiar Dados de Pagamento'}</span>
@@ -314,7 +314,7 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
               type="button"
               disabled={isProcessing}
               onClick={handleConfirmPayment}
-              className="w-full py-3 px-4 text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 disabled:opacity-50 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 px-4 text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 disabled:opacity-50 rounded-xl transition-all duration-200 ease-in-out hover:scale-[1.01] active:scale-[0.98] shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
             >
               {isProcessing ? (
                 <span>A processar no sistema bancário...</span>

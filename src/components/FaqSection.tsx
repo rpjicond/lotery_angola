@@ -57,23 +57,23 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm transition-colors hover:border-slate-300"
+                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm transition-all duration-200 ease-in-out hover:border-amber-300 hover:shadow-md"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full py-4 px-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full py-4 px-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none transition-colors duration-200 ease-in-out hover:bg-slate-50/80"
                 >
-                  <span className="text-sm font-bold text-slate-900">
+                  <span className="text-sm font-bold text-slate-900 transition-colors duration-200 ease-in-out">
                     {faq.q}
                   </span>
-                  <div className="w-6 h-6 rounded-md bg-slate-100 flex items-center justify-center shrink-0 text-slate-700">
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 text-slate-700 transition-all duration-200 ease-in-out ${isOpen ? 'bg-amber-400 text-slate-950 rotate-180' : 'bg-slate-100 text-slate-700'}`}>
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 font-normal">
+                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 font-normal animate-in fade-in duration-200">
                     {faq.a}
                   </div>
                 )}

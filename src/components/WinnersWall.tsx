@@ -83,9 +83,9 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
             {testimonials.map((t) => (
               <div
                 key={t.id}
-                className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors shadow-sm"
+                className="group flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 ease-in-out shadow-sm"
               >
-                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-amber-400">
+                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-amber-400 transition-transform duration-200 ease-in-out group-hover:scale-105">
                   <img
                     src={t.photo}
                     alt={t.name}
@@ -94,10 +94,10 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs text-slate-700 italic leading-snug line-clamp-2">
+                  <p className="text-xs text-slate-700 italic leading-snug line-clamp-2 transition-colors duration-200 ease-in-out group-hover:text-slate-900">
                     {t.quote}
                   </p>
-                  <p className="text-xs font-bold text-slate-950 mt-1 truncate">
+                  <p className="text-xs font-bold text-slate-950 mt-1 truncate transition-colors duration-200 ease-in-out group-hover:text-amber-600">
                     {t.name}
                   </p>
                 </div>
@@ -110,11 +110,11 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
             <button
               type="button"
               onClick={onOpenLiveDraw}
-              className="w-full sm:w-auto px-7 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl shadow-md border border-slate-800 flex flex-col items-center justify-center cursor-pointer transition-colors group text-center"
+              className="w-full sm:w-auto px-7 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl shadow-md hover:shadow-xl border border-slate-800 flex flex-col items-center justify-center cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] group text-center"
             >
               <span className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <Play className="w-3 h-3 fill-current text-slate-300" />
+                <Play className="w-3 h-3 fill-current text-slate-300 transition-transform duration-200 ease-in-out group-hover:scale-110" />
                 Próxima Extração Oficial:
               </span>
               <span className="text-xl sm:text-2xl font-black font-mono text-[#FACC15] tracking-tight mt-1">

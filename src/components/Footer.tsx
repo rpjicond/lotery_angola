@@ -89,45 +89,45 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('hero')}
-                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer flex items-center gap-1.5 group"
                 >
-                  <ArrowRight className="w-3 h-3 text-amber-600" />
+                  <ArrowRight className="w-3 h-3 text-amber-600 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   <span>Início</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('como-funciona')}
-                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer flex items-center gap-1.5 group"
                 >
-                  <ArrowRight className="w-3 h-3 text-amber-600" />
+                  <ArrowRight className="w-3 h-3 text-amber-600 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   <span>Como Funciona</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('premios')}
-                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer flex items-center gap-1.5 group"
                 >
-                  <ArrowRight className="w-3 h-3 text-amber-600" />
+                  <ArrowRight className="w-3 h-3 text-amber-600 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   <span>Prêmios a Ganhar</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('vencedores')}
-                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer flex items-center gap-1.5 group"
                 >
-                  <ArrowRight className="w-3 h-3 text-amber-600" />
+                  <ArrowRight className="w-3 h-3 text-amber-600 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   <span>Vencedores</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('duvidas')}
-                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer flex items-center gap-1.5 group"
                 >
-                  <ArrowRight className="w-3 h-3 text-amber-600" />
+                  <ArrowRight className="w-3 h-3 text-amber-600 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   <span>Perguntas Frequentes (FAQ)</span>
                 </button>
               </li>
@@ -140,13 +140,13 @@ export const Footer: React.FC<FooterProps> = ({
               Destinos & Parcerias
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
-              <li className="flex items-center gap-2 font-medium">
-                <span className="text-base">🇵🇹</span>
-                <span className="font-semibold text-slate-900">Portugal · Trabalho & Estudo (Empresas Parceiras)</span>
+              <li className="flex items-center gap-2 font-medium group transition-colors duration-200 ease-in-out hover:text-amber-600">
+                <span className="text-base transition-transform duration-200 ease-in-out group-hover:scale-110">🇵🇹</span>
+                <span className="font-semibold text-slate-900 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">Portugal · Trabalho & Estudo (Empresas Parceiras)</span>
               </li>
-              <li className="flex items-center gap-2 font-medium">
-                <span className="text-base">🇫🇷</span>
-                <span className="font-semibold text-slate-900">França · Trabalho & Estudo (Parcerias Corporativas)</span>
+              <li className="flex items-center gap-2 font-medium group transition-colors duration-200 ease-in-out hover:text-amber-600">
+                <span className="text-base transition-transform duration-200 ease-in-out group-hover:scale-110">🇫🇷</span>
+                <span className="font-semibold text-slate-900 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">França · Trabalho & Estudo (Parcerias Corporativas)</span>
               </li>
             </ul>
           </div>
@@ -179,7 +179,7 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={onOpenTicket}
-                className="w-full py-2.5 px-4 text-xs font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 rounded-xl transition-all shadow-sm cursor-pointer uppercase tracking-tight"
+                className="w-full py-2.5 px-4 text-xs font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 rounded-xl transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] shadow-sm cursor-pointer uppercase tracking-tight"
               >
                 Emitir Bilhete Grátis com BI
               </button>
@@ -201,7 +201,7 @@ export const Footer: React.FC<FooterProps> = ({
                     'A participação na LVA está sujeita aos regulamentos estabelecidos pelo Instituto de Supervisão de Jogos (ISJ) de Angola. Os bilhetes têm o valor de 500 Kz e cada cidadão tem direito a 1 bilhete diário gratuito registado com o seu Número de Identificação Nacional (BI). Os prêmios incluem custeamento total de taxas consulares, assessoria jurídica documental no MIREX e emissão de passagens aéreas internacionais.'
                   )
                 }
-                className="hover:text-amber-600 transition-colors cursor-pointer"
+                className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer"
               >
                 Termos e Condições
               </button>
@@ -213,14 +213,14 @@ export const Footer: React.FC<FooterProps> = ({
                     'Todos os dados civis (Nome Completo, Número de BI e Telefone) recolhidos pela Lotaria de Vistos Angola são protegidos e utilizados estritamente para o registro e validação legal dos bilhetes e verificação dos contemplados perante o regulador nacional e os consulados internacionais.'
                   )
                 }
-                className="hover:text-amber-600 transition-colors cursor-pointer"
+                className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer"
               >
                 Política de Privacidade
               </button>
               <span>·</span>
               <button
                 onClick={() => onNavigate('sobre-nos')}
-                className="hover:text-amber-600 transition-colors cursor-pointer"
+                className="hover:text-amber-600 transition-colors duration-200 ease-in-out cursor-pointer"
               >
                 Supervisão do ISJ
               </button>
@@ -237,7 +237,7 @@ export const Footer: React.FC<FooterProps> = ({
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 transition-transform"
+              className="w-8 h-8 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 active:scale-95 transition-all duration-200 ease-in-out"
               aria-label="Facebook Oficial"
             >
               f
@@ -246,7 +246,7 @@ export const Footer: React.FC<FooterProps> = ({
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#405DE6] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 transition-transform"
+              className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#405DE6] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 active:scale-95 transition-all duration-200 ease-in-out"
               aria-label="Instagram Oficial"
             >
               ig
@@ -255,7 +255,7 @@ export const Footer: React.FC<FooterProps> = ({
               href="https://wa.me/244923000000"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 transition-transform"
+              className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 active:scale-95 transition-all duration-200 ease-in-out"
               aria-label="WhatsApp Suporte"
             >
               wa

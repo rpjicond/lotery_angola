@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-auto ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out pointer-events-auto ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 text-slate-900'
           : 'bg-white/90 backdrop-blur-sm border-b border-slate-200/80 text-slate-900'
@@ -87,20 +87,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               e.preventDefault();
               handleLinkClick('hero');
             }}
-            className="flex items-center gap-2.5 sm:gap-3 group py-1 shrink-0 bg-transparent"
+            className="flex items-center gap-2.5 sm:gap-3 group py-1 shrink-0 bg-transparent transition-transform duration-200 ease-in-out hover:scale-[1.02]"
             title="LVA – Lotaria de Vistos Angola"
           >
             {/* Tilted Passports (Blue with star & Yellow with AO) */}
             <div className="relative flex items-center shrink-0 w-11 h-9">
               {/* Blue Passport */}
-              <div className="absolute left-0 top-0.5 w-6 h-8 bg-[#0B2C69] border border-[#FBBF24] rounded-[3px] flex flex-col items-center justify-center shadow-md rotate-[-9deg] transition-transform group-hover:rotate-[-12deg]">
+              <div className="absolute left-0 top-0.5 w-6 h-8 bg-[#0B2C69] border border-[#FBBF24] rounded-[3px] flex flex-col items-center justify-center shadow-md rotate-[-9deg] transition-transform duration-200 ease-in-out group-hover:rotate-[-14deg]">
                 <div className="w-2.5 h-2.5 rounded-full border border-[#FFDE00] flex items-center justify-center text-[5px] text-[#FFDE00] font-black leading-none">
                   ★
                 </div>
                 <div className="w-3.5 h-[1.5px] bg-[#FFDE00] mt-0.5 opacity-90" />
               </div>
               {/* Yellow Passport with AO */}
-              <div className="absolute left-3.5 top-0 w-6 h-8 bg-[#FBBF24] border border-amber-300 rounded-[3px] flex items-center justify-center shadow-md rotate-[9deg] transition-transform group-hover:rotate-[12deg]">
+              <div className="absolute left-3.5 top-0 w-6 h-8 bg-[#FBBF24] border border-amber-300 rounded-[3px] flex items-center justify-center shadow-md rotate-[9deg] transition-transform duration-200 ease-in-out group-hover:rotate-[14deg]">
                 <span className="text-[7.5px] font-black text-slate-950 tracking-tighter">AO</span>
               </div>
             </div>
@@ -129,15 +129,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleLinkClick(item.id)}
-                  className={`relative py-1 transition-colors cursor-pointer whitespace-nowrap bg-transparent ${
+                  className={`relative py-1 transition-all duration-200 ease-in-out cursor-pointer whitespace-nowrap bg-transparent ${
                     isActive
                       ? 'text-slate-950 font-bold'
-                      : 'text-slate-600 hover:text-slate-950'
+                      : 'text-slate-600 hover:text-slate-950 hover:scale-[1.03]'
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#FACC15] rounded-full" />
+                    <span className="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#FACC15] rounded-full transition-all duration-200 ease-in-out" />
                   )}
                 </button>
               );
@@ -149,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-800 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 focus:outline-none flex items-center justify-center cursor-pointer transition-colors"
+              className="p-2 rounded-xl text-slate-800 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 focus:outline-none flex items-center justify-center cursor-pointer transition-colors duration-200 ease-in-out"
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
             >
               {mobileMenuOpen ? (
@@ -191,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onOpenRegisterOrTicket();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full py-3 px-4 rounded-xl text-xs font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 shadow flex items-center justify-center gap-2 cursor-pointer uppercase tracking-tight"
+                className="w-full py-3 px-4 rounded-xl text-xs font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 shadow flex items-center justify-center gap-2 cursor-pointer uppercase tracking-tight transition-all duration-200 ease-in-out hover:scale-[1.01] active:scale-[0.99]"
               >
                 <span>QUERO PARTICIPAR AGORA!</span>
                 <ChevronRight className="w-4 h-4" />
@@ -210,7 +210,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenMyTickets();
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-3 px-4 rounded-2xl text-xs font-bold text-slate-900 bg-slate-100 border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:bg-slate-200 transition-colors"
+              className="w-full py-3 px-4 rounded-2xl text-xs font-bold text-slate-900 bg-slate-100 border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:bg-slate-200 active:bg-slate-300 transition-all duration-200 ease-in-out hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2.5">
                 <div className="relative flex items-center shrink-0 w-6 h-5">
@@ -236,14 +236,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={item.id}
                     type="button"
                     onClick={() => handleLinkClick(item.id)}
-                    className={`w-full text-left py-3 px-3.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer transition-colors ${
+                    className={`w-full text-left py-3 px-3.5 rounded-xl text-xs font-semibold flex items-center justify-between cursor-pointer transition-all duration-200 ease-in-out ${
                       isActive
                         ? 'bg-white text-slate-950 font-bold shadow-sm border border-slate-200'
                         : 'text-slate-700 hover:bg-slate-200/60 hover:text-slate-950'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <Icon className={`w-4 h-4 ${isActive ? 'text-amber-600' : 'text-slate-500'}`} />
+                      <Icon className={`w-4 h-4 transition-colors duration-200 ease-in-out ${isActive ? 'text-amber-600' : 'text-slate-500'}`} />
                       <span className={isActive ? 'text-slate-950 font-bold' : 'text-slate-800'}>
                         {item.label}
                       </span>

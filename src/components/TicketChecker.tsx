@@ -74,7 +74,7 @@ export const TicketChecker: React.FC<TicketCheckerProps> = ({
         </div>
 
         {/* Input Largo e Elegante com Fundo Branco */}
-        <form onSubmit={handleSearch} className="bg-white border border-slate-200 rounded-2xl p-3 sm:p-4 shadow-sm">
+        <form onSubmit={handleSearch} className="bg-white border border-slate-200 rounded-2xl p-3 sm:p-4 shadow-sm hover:shadow-md transition-all duration-200 ease-in-out">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
             <div className="relative flex-1 w-full">
               <Search className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -83,12 +83,12 @@ export const TicketChecker: React.FC<TicketCheckerProps> = ({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Introduza o número de BI ou código do bilhete (ex: 006841209LA048)"
-                className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-amber-400 font-mono uppercase"
+                className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-amber-400 font-mono uppercase transition-all duration-200 ease-in-out"
               />
             </div>
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 rounded-xl transition-colors cursor-pointer whitespace-nowrap uppercase tracking-wider shrink-0 shadow-sm"
+              className="w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 rounded-xl transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap uppercase tracking-wider shrink-0 shadow-sm"
             >
               Consultar Bilhete
             </button>
@@ -99,11 +99,11 @@ export const TicketChecker: React.FC<TicketCheckerProps> = ({
         {searched && (
           <div className="mt-6">
             {resultTicket ? (
-              <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm transition-all text-slate-900">
+              <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all duration-200 ease-in-out text-slate-900">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
                   <div className="flex items-center gap-3">
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 ease-in-out hover:scale-105 ${
                         resultTicket.status === 'won'
                           ? 'bg-emerald-100 text-emerald-800'
                           : 'bg-slate-100 text-slate-700'
@@ -138,10 +138,10 @@ export const TicketChecker: React.FC<TicketCheckerProps> = ({
 
                   <button
                     onClick={() => onSelectTicketToView(resultTicket)}
-                    className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1 cursor-pointer transition-colors"
+                    className="group text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1 cursor-pointer transition-colors duration-200 ease-in-out"
                   >
                     <span>Ver Dossiê do Bilhete</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                   </button>
                 </div>
 
