@@ -204,47 +204,60 @@ export const LiveDrawRoom: React.FC = () => {
             </div>
           )}
 
-          {/* Tabela de Números e Dígitos Selecionados em Tempo Real */}
-          <div className="mt-8">
-            <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3 text-left">
-              Registo de Extração e Números Selecionados
-            </h4>
-            <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-xs">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-slate-100 text-slate-700 uppercase text-[10px] tracking-wider font-bold border-b border-slate-200">
-                  <tr>
-                    <th className="py-3 px-4">Ordem</th>
-                    <th className="py-3 px-4">Dígito da Esfera</th>
-                    <th className="py-3 px-4">ID do Bilhete Parcial</th>
-                    <th className="py-3 px-4">Estado da Semente</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 font-mono">
-                  {extractedBalls.length > 0 ? (
-                    extractedBalls.map((digit, i) => (
-                      <tr key={i} className="hover:bg-slate-50/80 transition-colors">
-                        <td className="py-2.5 px-4 font-bold text-slate-500">0{i + 1}</td>
-                        <td className="py-2.5 px-4 font-black text-amber-600 text-sm">{digit}</td>
-                        <td className="py-2.5 px-4 text-slate-800">
-                          LVA-2026-{extractedBalls.slice(0, i + 1).join('')}
-                          {i < 4 ? '...' : ''}
-                        </td>
-                        <td className="py-2.5 px-4 text-emerald-600 font-sans font-semibold text-[11px]">
-                          Auditado ISJ
-                        </td>
-                      </tr>
-                    ))
-                  ) : (
+          {/* Tabela de Números e Dígitos Selecionados (Cria-se dinamicamente quando o sorteio começa) */}
+          {extractedBalls.length > 0 && (
+            <div className="mt-8 animate-in fade-in slide-in-from-bottom-3 duration-300">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider text-left flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
+                  <span>Tabela de Dígitos e Bilhetes Selecionados em Tempo Real</span>
+                </h4>
+                <span className="text-[10px] font-mono text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded">
+                  {extractedBalls.length} de 5 Extraídos
+                </span>
+              </div>
+              <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-xs">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-100 text-slate-700 uppercase text-[10px] tracking-wider font-bold border-b border-slate-200">
                     <tr>
-                      <td colSpan={4} className="py-6 text-center text-slate-400 font-sans text-xs italic">
-                        Clique em "Simular Seleção de Candidato" para iniciar a extração das esferas...
-                      </td>
+                      <th className="py-3 px-4">Ordem</th>
+                      <th className="py-3 px-4">Dígito da Esfera</th>
+                      <th className="py-3 px-4">ID do Bilhete Parcial</th>
+                      <th className="py-3 px-4">Estado da Semente</th>
                     </tr>
-                  )}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 font-mono">
+                    {extractedBalls.map((digit, i) => {
+                      const isLatest = i === extractedBalls.length - 1 && isDrawing;
+                      return (
+                        <tr key={i} className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-2.5 px-4 font-bold text-slate-500">0{i + 1}</td>
+                          <td className="py-2.5 px-4 font-black text-amber-600 text-sm">
+                            <span className={`inline-block ${isLatest ? 'animate-bounce text-amber-500 scale-125' : ''}`}>
+                              {digit}
+                            </span>
+                          </td>
+                          <td className="py-2.5 px-4 text-slate-800">
+                            <span className={isLatest ? 'text-amber-700 font-bold' : ''}>
+                              LVA-2026-{extractedBalls.slice(0, i + 1).join('')}
+                              {i < 4 ? '...' : ''}
+                            </span>
+                          </td>
+                          <td className="py-2.5 px-4 text-emerald-600 font-sans font-semibold text-[11px]">
+                            {i === extractedBalls.length - 1 && isDrawing ? (
+                              <span className="text-amber-600 animate-pulse">A auditar...</span>
+                            ) : (
+                              'Auditado ISJ'
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
       </Container>
