@@ -14,6 +14,7 @@ import { DigitalTicketView } from './components/DigitalTicketView';
 import { MyTicketsModal } from './components/MyTicketsModal';
 import { LoadingScreen } from './components/LoadingScreen';
 import { LoginPage } from './components/LoginPage';
+import { AdminDashboard } from './components/AdminDashboard';
 import { LOTTERY_DRAWS, INITIAL_USER_TICKETS } from './data/lotteries';
 import { LotteryDraw, UserTicket } from './types/lottery';
 import { Check } from 'lucide-react';
@@ -30,6 +31,7 @@ export default function App() {
   });
 
   const [activeSection, setActiveSection] = useState('hero');
+  const [isAdmin, setIsAdmin] = useState(false);
   const [currentHash, setCurrentHash] = useState<string>(window.location.hash);
   const [freeModalOpen, setFreeModalOpen] = useState(false);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
@@ -101,13 +103,23 @@ export default function App() {
     }
   };
 
+  // If authenticated as admin
+  if (isAdmin) {
+    return <AdminDashboard onLogout={() => setIsAdmin(false)} />;
+  }
+
   // If hash is #login, render LoginPage
   if (currentHash === '#login') {
     return (
       <LoginPage
-        onLoginSuccess={(name, bi) => {
-          showToast(`Sessão iniciada com sucesso para ${name} (${bi})!`);
-          window.location.hash = '';
+        onLoginSuccess={(name, id) => {
+          // Simple auth check
+          if (id.toLowerCase() === 'admin' && name.toLowerCase() === 'admin') {
+            setIsAdmin(true);
+            window.location.hash = '';
+          } else {
+            showToast('Credenciais inválidas.');
+          }
         }}
         onBackToHome={() => {
           window.location.hash = '';
