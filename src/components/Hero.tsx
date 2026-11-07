@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Ticket, Tv, Sparkles } from 'lucide-react';
+import { UserCheck, Ticket, Tv, Sparkles, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 
 interface HeroProps {
   onOpenParticipate: () => void;
@@ -104,83 +104,157 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Como Funciona: 3-Step Premium Cards */}
-      <div id="como-funciona" className="bg-[#030B1A] border-y border-[#0a275f]/80 text-white py-6 sm:py-8">
+      <div id="como-funciona" className="bg-[#020815] border-y border-[#0d2c66] text-white py-8 sm:py-12">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Subheader */}
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] tracking-widest uppercase font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-3.5 py-1 rounded-full">
+              PROCESSO SIMPLES & TRANSPARENTE
+            </span>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight font-display mt-2.5">
+              Como Funciona a Lotaria em 3 Passos
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             
             {/* Step 1 Card */}
             <button
               type="button"
               onClick={() => onSelectStep(1)}
-              className="relative bg-[#06183C] hover:bg-[#0A2254] border border-[#133C82]/80 hover:border-[#FFDE00]/70 rounded-2xl p-4 sm:p-5 shadow-xl hover:shadow-[0_10px_30px_rgba(255,222,0,0.18)] transition-all duration-300 cursor-pointer group flex flex-col items-center text-center overflow-hidden"
+              className="relative bg-gradient-to-b from-[#092252] via-[#06183C] to-[#030D22] hover:from-[#0E3278] hover:via-[#092252] hover:to-[#051433] border-2 border-[#1E4D9B] hover:border-[#FFDE00] rounded-3xl p-5 sm:p-6 shadow-[0_12px_32px_rgba(2,10,25,0.7)] hover:shadow-[0_16px_40px_rgba(255,222,0,0.22)] transition-all duration-300 cursor-pointer group flex flex-col justify-between text-left overflow-hidden active:scale-[0.98]"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFDE00]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#FFDE00]/15 transition-all" />
+              {/* Subtle Watermark Step Number */}
+              <span className="absolute top-2 right-4 text-white/5 font-black text-6xl sm:text-7xl font-mono select-none pointer-events-none group-hover:text-[#FFDE00]/10 transition-colors">
+                01
+              </span>
               
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-[#FFDE00]/15 border border-[#FFDE00]/30 flex items-center justify-center text-[#FFDE00] shrink-0 group-hover:scale-110 transition-transform">
-                  <UserCheck className="w-4 h-4" />
+              <div>
+                {/* Header: Glowing Icon & Step Pill */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#E5A800] text-slate-950 flex items-center justify-center font-black shadow-[0_4px_16px_rgba(255,222,0,0.35)] shrink-0 group-hover:scale-110 transition-transform">
+                      <UserCheck className="w-5 h-5 stroke-[2.5]" />
+                    </div>
+                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
+                      PASSO 1: REGISTE-SE
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] uppercase tracking-wider font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-2.5 py-0.5 rounded-full">
-                  PASSO 1: REGISTE-SE
-                </span>
+
+                {/* Content */}
+                <h3 className="text-base sm:text-lg font-black text-white group-hover:text-[#FFDE00] transition-colors leading-snug">
+                  Registo Cívico com BI
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1.5 font-medium leading-relaxed">
+                  1 Bilhete Grátis Diário por BI Nacional
+                </p>
+
+                {/* Value Tag */}
+                <div className="mt-3.5 inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-300 bg-emerald-950/60 border border-emerald-500/40 px-2.5 py-1 rounded-lg">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>100% Patrocinado pelo Estado</span>
+                </div>
               </div>
 
-              <p className="text-sm sm:text-base font-extrabold text-white mt-1 group-hover:text-[#FFDE00] transition-colors">
-                Registo Cívico com BI
-              </p>
-              <p className="text-xs text-slate-300 mt-1 font-medium leading-relaxed">
-                1 Bilhete Grátis Diário por BI Nacional
-              </p>
+              {/* Action Callout */}
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-slate-300 group-hover:text-[#FFDE00] transition-colors">
+                <span>Registar Bilhete Grátis</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
+              </div>
             </button>
 
             {/* Step 2 Card */}
             <button
               type="button"
               onClick={() => onSelectStep(2)}
-              className="relative bg-[#06183C] hover:bg-[#0A2254] border border-[#133C82]/80 hover:border-[#FFDE00]/70 rounded-2xl p-4 sm:p-5 shadow-xl hover:shadow-[0_10px_30px_rgba(255,222,0,0.18)] transition-all duration-300 cursor-pointer group flex flex-col items-center text-center overflow-hidden"
+              className="relative bg-gradient-to-b from-[#092252] via-[#06183C] to-[#030D22] hover:from-[#0E3278] hover:via-[#092252] hover:to-[#051433] border-2 border-[#1E4D9B] hover:border-[#FFDE00] rounded-3xl p-5 sm:p-6 shadow-[0_12px_32px_rgba(2,10,25,0.7)] hover:shadow-[0_16px_40px_rgba(255,222,0,0.22)] transition-all duration-300 cursor-pointer group flex flex-col justify-between text-left overflow-hidden active:scale-[0.98]"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFDE00]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#FFDE00]/15 transition-all" />
+              {/* Subtle Watermark Step Number */}
+              <span className="absolute top-2 right-4 text-white/5 font-black text-6xl sm:text-7xl font-mono select-none pointer-events-none group-hover:text-[#FFDE00]/10 transition-colors">
+                02
+              </span>
 
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-[#FFDE00]/15 border border-[#FFDE00]/30 flex items-center justify-center text-[#FFDE00] shrink-0 group-hover:scale-110 transition-transform">
-                  <Ticket className="w-4 h-4" />
+              <div>
+                {/* Header: Glowing Icon & Step Pill */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#E5A800] text-slate-950 flex items-center justify-center font-black shadow-[0_4px_16px_rgba(255,222,0,0.35)] shrink-0 group-hover:scale-110 transition-transform">
+                      <Ticket className="w-5 h-5 stroke-[2.5]" />
+                    </div>
+                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
+                      PASSO 2: COMPRE O BILHETE
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] uppercase tracking-wider font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-2.5 py-0.5 rounded-full">
-                  PASSO 2: COMPRE O BILHETE
-                </span>
+
+                {/* Content */}
+                <h3 className="text-base sm:text-lg font-black text-[#FFDE00] leading-snug">
+                  Apenas 500 Kwanza
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1.5 font-medium leading-relaxed">
+                  Multicaixa Express, Referência ou Unitel Money
+                </p>
+
+                {/* Value Tag */}
+                <div className="mt-3.5 inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-300 bg-amber-950/60 border border-amber-500/40 px-2.5 py-1 rounded-lg">
+                  <Zap className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>Emissão Instantânea & MCX</span>
+                </div>
               </div>
 
-              <p className="text-sm sm:text-base font-extrabold text-white mt-1 group-hover:text-[#FFDE00] transition-colors">
-                Apenas 500 Kwanza
-              </p>
-              <p className="text-xs text-[#FFDE00] mt-1 font-semibold leading-relaxed">
-                Multicaixa Express, Referência ou Unitel Money
-              </p>
+              {/* Action Callout */}
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-slate-300 group-hover:text-[#FFDE00] transition-colors">
+                <span>Adquirir Bilhetes Extras</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
+              </div>
             </button>
 
             {/* Step 3 Card */}
             <button
               type="button"
               onClick={() => onSelectStep(3)}
-              className="relative bg-[#06183C] hover:bg-[#0A2254] border border-[#133C82]/80 hover:border-[#FFDE00]/70 rounded-2xl p-4 sm:p-5 shadow-xl hover:shadow-[0_10px_30px_rgba(255,222,0,0.18)] transition-all duration-300 cursor-pointer group flex flex-col items-center text-center overflow-hidden"
+              className="relative bg-gradient-to-b from-[#092252] via-[#06183C] to-[#030D22] hover:from-[#0E3278] hover:via-[#092252] hover:to-[#051433] border-2 border-[#1E4D9B] hover:border-[#FFDE00] rounded-3xl p-5 sm:p-6 shadow-[0_12px_32px_rgba(2,10,25,0.7)] hover:shadow-[0_16px_40px_rgba(255,222,0,0.22)] transition-all duration-300 cursor-pointer group flex flex-col justify-between text-left overflow-hidden active:scale-[0.98]"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FFDE00]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#FFDE00]/15 transition-all" />
+              {/* Subtle Watermark Step Number */}
+              <span className="absolute top-2 right-4 text-white/5 font-black text-6xl sm:text-7xl font-mono select-none pointer-events-none group-hover:text-[#FFDE00]/10 transition-colors">
+                03
+              </span>
 
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-[#FFDE00]/15 border border-[#FFDE00]/30 flex items-center justify-center text-[#FFDE00] shrink-0 group-hover:scale-110 transition-transform">
-                  <Tv className="w-4 h-4" />
+              <div>
+                {/* Header: Glowing Icon & Step Pill */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#E5A800] text-slate-950 flex items-center justify-center font-black shadow-[0_4px_16px_rgba(255,222,0,0.35)] shrink-0 group-hover:scale-110 transition-transform">
+                      <Tv className="w-5 h-5 stroke-[2.5]" />
+                    </div>
+                    <span className="text-xs font-black text-slate-950 bg-[#FFDE00] px-3 py-1 rounded-full uppercase tracking-wider font-display shadow-sm">
+                      PASSO 3: PARTICIPE NO SORTEIO
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] sm:text-xs font-black text-[#FFDE00] uppercase tracking-wider font-display bg-[#FFDE00]/10 border border-[#FFDE00]/30 px-2.5 py-0.5 rounded-full">
-                  PASSO 3: PARTICIPE NO SORTEIO
-                </span>
+
+                {/* Content */}
+                <h3 className="text-base sm:text-lg font-black text-white group-hover:text-[#FFDE00] transition-colors leading-snug">
+                  Extração Pública ao Vivo
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1.5 font-medium leading-relaxed">
+                  Auditoria Oficial do ISJ de Angola
+                </p>
+
+                {/* Value Tag */}
+                <div className="mt-3.5 inline-flex items-center gap-1.5 text-[11px] font-bold text-sky-300 bg-sky-950/60 border border-sky-500/40 px-2.5 py-1 rounded-lg">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-ping shrink-0" />
+                  <span>Sorteio Auditado & Transparente</span>
+                </div>
               </div>
 
-              <p className="text-sm sm:text-base font-extrabold text-white mt-1 group-hover:text-[#FFDE00] transition-colors">
-                Extração Pública ao Vivo
-              </p>
-              <p className="text-xs text-slate-300 mt-1 font-medium leading-relaxed">
-                Auditoria Oficial do ISJ de Angola
-              </p>
+              {/* Action Callout */}
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-slate-300 group-hover:text-[#FFDE00] transition-colors">
+                <span>Ver Transmissão em Direto</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
+              </div>
             </button>
 
           </div>
