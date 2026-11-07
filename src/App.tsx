@@ -86,14 +86,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040C1D] text-white flex flex-col font-sans selection:bg-[#FBBF24] selection:text-slate-950">
+    <div className="min-h-screen bg-[#050914] text-white flex flex-col font-sans selection:bg-[#FACC15] selection:text-[#050914]">
       {/* Loading Screen with official LVA dual passport logo symbol */}
       <LoadingScreen />
 
       {/* Toast Alert */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#071F4A] text-white px-5 py-3.5 rounded-2xl border-2 border-[#FBBF24] shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5 duration-300">
-          <div className="w-8 h-8 rounded-full bg-[#FBBF24] text-slate-950 flex items-center justify-center font-bold">
+        <div className="fixed bottom-6 right-6 z-50 bg-[#111827] text-white px-5 py-3.5 rounded-2xl border-2 border-[#FACC15] shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5 duration-300">
+          <div className="w-8 h-8 rounded-full bg-[#FACC15] text-[#0B0F19] flex items-center justify-center font-bold">
             <Check className="w-4 h-4" />
           </div>
           <span className="text-xs font-bold">{toastMessage}</span>

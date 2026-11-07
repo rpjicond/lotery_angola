@@ -8,7 +8,6 @@ interface WinnersWallProps {
 export const WinnersWall: React.FC<WinnersWallProps> = ({
   onOpenLiveDraw,
 }) => {
-  // Countdown matching the "15 dias, 2 horas" in the reference image
   const [countdown, setCountdown] = useState({
     days: 15,
     hours: 2,
@@ -34,51 +33,58 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
       id: 1,
       name: 'Esperança Muachifi',
       photo: '/assets/lva/winner_1.jpg',
-      quote: '"Fui removida de toda a burocracia e recebi assessoria jurídica e agendamento VFS da Lotaria de Vistos Angola!"',
+      quote: '"Fui liberta de toda a burocracia e recebi assessoria jurídica e agendamento VFS da Lotaria de Vistos Angola!"',
     },
     {
       id: 2,
       name: 'Domingos Sebastião',
       photo: '/assets/lva/winner_2.jpg',
-      quote: '"Comprei o bilhete por 500 Kz e ganhei tratamento de Visto 100% gratuito com passagens aéreas incluídas."',
+      quote: '"Participei pelo portal oficial e ganhei o tratamento de visto 100% financiado com passagens aéreas incluídas."',
     },
     {
       id: 3,
       name: 'Família Kapapelo',
       photo: '/assets/lva/winner_3.jpg',
-      quote: '"Financiamento total das taxas consulares e bilhetes de avião emitidos. Uma bênção para a nossa família reunida."',
+      quote: '"Financiamento integral das taxas consulares e bilhetes emitidos pela TAAG para toda a nossa família."',
     },
     {
       id: 4,
       name: 'Paulo Bento Ganga',
       photo: '/assets/lva/winner_4.jpg',
-      quote: '"O meu número de bilhete foi sorteado na extração ao vivo auditada. Agradeço à Lotaria de Vistos de Angola!"',
+      quote: '"O meu bilhete foi extraído na transmissão auditada pelo ISJ. Agradeço à Lotaria de Vistos Angola!"',
     },
   ];
 
   return (
-    <section id="vencedores" className="py-10 sm:py-14 bg-[#040C1D] border-b border-[#0a275f] text-white">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="vencedores" className="py-14 sm:py-20 bg-[#050914] border-b border-slate-800/80 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Title */}
-        <div className="text-center mb-8">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#FBBF24] tracking-tight font-display">
-            Testemunhos de Vencedores
-          </h2>
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-slate-800/80">
+          <div>
+            <span className="text-xs font-bold text-[#FACC15] uppercase tracking-wider block">
+              Resultados Oficiais Anteriores
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+              Testemunhos de Cidadãos Contemplados
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-400 max-w-md">
+            Histórias reais de angolanos que obtiveram vistos de trabalho, estudo e turismo com patrocínio total da LVA.
+          </p>
         </div>
 
         {/* Testimonials + Sorteio Ao Vivo Widget Container */}
         <div className="flex flex-col xl:flex-row items-center justify-between gap-6">
           
-          {/* 4 Testimonials Grid matching reference */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 w-full">
+          {/* 4 Testimonials Grid */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
             {testimonials.map((t) => (
               <div
                 key={t.id}
-                className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#081F4A] border border-[#133A7C] hover:border-amber-400/50 hover:bg-[#0c2960] transition-all shadow-md"
+                className="flex items-center gap-3.5 p-4 rounded-xl bg-[#0F172A] border border-slate-800 hover:border-slate-700 transition-colors"
               >
-                {/* Winner circular portrait */}
-                <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-amber-400/80 shadow-md">
+                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-slate-700">
                   <img
                     src={t.photo}
                     alt={t.name}
@@ -86,12 +92,11 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
                   />
                 </div>
 
-                {/* Quote text */}
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11px] sm:text-xs text-slate-200 italic leading-snug">
+                  <p className="text-xs text-slate-300 italic leading-snug line-clamp-2">
                     {t.quote}
                   </p>
-                  <p className="text-[10px] font-bold text-[#FBBF24] mt-1 truncate">
+                  <p className="text-xs font-semibold text-white mt-1 truncate">
                     {t.name}
                   </p>
                 </div>
@@ -99,22 +104,23 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
             ))}
           </div>
 
-          {/* Green Sorteio Ao Vivo Card: Exactly matching reference image */}
+          {/* Sorteio Ao Vivo Clean Banner */}
           <div className="shrink-0 w-full xl:w-auto flex justify-center">
             <button
               type="button"
               onClick={onOpenLiveDraw}
-              className="w-full sm:w-auto px-7 py-3.5 bg-[#15803D] hover:bg-[#166534] text-white rounded-2xl shadow-lg border-2 border-emerald-400/30 flex flex-col items-center justify-center cursor-pointer transition-transform active:scale-98 group text-center"
+              className="w-full sm:w-auto px-7 py-4 bg-[#0F172A] hover:bg-slate-850 text-white rounded-xl border border-slate-800 hover:border-slate-700 flex flex-col items-center justify-center cursor-pointer transition-colors group text-center"
             >
-              <span className="text-xs sm:text-sm font-semibold text-emerald-100 flex items-center gap-1.5">
-                <Play className="w-3.5 h-3.5 fill-current" />
-                Sorteio Ao Vivo em:
+              <span className="text-xs font-medium text-slate-400 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <Play className="w-3 h-3 fill-current text-slate-400" />
+                Próxima Extração Oficial:
               </span>
-              <span className="text-2xl sm:text-3xl font-black text-[#D7FF38] tracking-tight font-display mt-0.5">
-                {countdown.days} dias, {countdown.hours} horas
+              <span className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight mt-1">
+                {countdown.days}d {countdown.hours}h {countdown.minutes}m {countdown.seconds}s
               </span>
-              <span className="text-[10px] text-emerald-200 font-mono mt-0.5">
-                {countdown.minutes}m {countdown.seconds}s · Clique para assistir
+              <span className="text-[11px] text-[#FACC15] font-semibold mt-1">
+                Clique para aceder à Sala de Transmissão
               </span>
             </button>
           </div>

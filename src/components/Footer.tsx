@@ -26,11 +26,11 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer id="contactos" className="bg-[#030C1E] text-white border-t border-[#0D2F6B] pt-12 pb-8">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer id="contactos" className="bg-[#030712] text-white border-t border-slate-800 pt-12 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-[#0d347c]/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
           
           {/* Column 1: Brand & Logo (LVA) */}
           <div className="lg:col-span-4 space-y-4">

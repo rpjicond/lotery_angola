@@ -71,11 +71,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300 pointer-events-auto ${
         isScrolled
-          ? 'bg-[#040C1D]/90 backdrop-blur-md shadow-lg border-b border-[#0a275f]/50'
+          ? 'bg-[#050914]/90 backdrop-blur-md shadow-sm border-b border-slate-800/80'
           : 'bg-transparent border-transparent'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
         <div className="flex items-center justify-between h-[76px] bg-transparent">
           
           {/* Brand Logo Zone: Exactly matching image_bc95a419.png */}

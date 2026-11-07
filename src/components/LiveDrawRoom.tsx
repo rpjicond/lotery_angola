@@ -76,7 +76,7 @@ export const LiveDrawRoom: React.FC = () => {
   };
 
   return (
-    <section id="extracao-ao-vivo" className="py-16 bg-slate-950 text-white relative overflow-hidden">
+    <section id="extracao-ao-vivo" className="py-16 sm:py-20 bg-[#050914] border-t border-slate-800/80 text-white relative overflow-hidden">
       {/* Background illumination */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/30 rounded-full blur-[140px]" />
