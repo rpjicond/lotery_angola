@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {
   ShieldCheck,
-  CheckCircle2,
-  ExternalLink,
   Phone,
   Mail,
   MapPin,
@@ -26,11 +24,11 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer id="contactos" className="bg-[#030712] text-white border-t border-slate-800 pt-12 pb-8">
+    <footer id="contactos" className="bg-slate-100 text-slate-900 border-t border-slate-200 pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-200">
           
           {/* Column 1: Brand & Logo (LVA) */}
           <div className="lg:col-span-4 space-y-4">
@@ -58,77 +56,77 @@ export const Footer: React.FC<FooterProps> = ({
 
               <div className="flex flex-col justify-center">
                 <div className="flex items-baseline gap-1.5 leading-none">
-                  <span className="text-2xl font-black tracking-tight text-white font-display">
+                  <span className="text-2xl font-black tracking-tight text-slate-900 font-display">
                     LVA
                   </span>
-                  <span className="text-xs font-bold text-white tracking-tight">
+                  <span className="text-xs font-bold text-slate-700 tracking-tight">
                     – Lotaria de Vistos Angola
                   </span>
                 </div>
-                <span className="text-xs text-[#FFDE00] italic font-normal tracking-wide mt-0.5">
+                <span className="text-xs text-amber-600 italic font-semibold tracking-wide mt-0.5">
                   O Seu Passaporte Para o Mundo!
                 </span>
               </div>
             </a>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
               Plataforma oficial de patrocínio de vistos de trabalho e estudo em Portugal e França, com parcerias diretas com empresas e instituições europeias.
             </p>
 
-            <div className="flex items-center gap-2 p-2.5 bg-[#071D45] rounded-xl border border-[#133A7C] text-xs text-slate-200">
-              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+            <div className="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-700 shadow-sm font-medium">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Entidade auditada e regulada pelo Instituto de Supervisão de Jogos (ISJ).</span>
             </div>
           </div>
 
           {/* Column 2: Navegação Rápida */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-black text-[#FFDE00] uppercase tracking-wider font-display">
+            <h4 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider font-display">
               Navegação
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
               <li>
                 <button
                   onClick={() => onNavigate('hero')}
-                  className="hover:text-[#FFDE00] transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <ArrowRight className="w-3 h-3 text-[#FFDE00]" />
+                  <ArrowRight className="w-3 h-3 text-amber-600" />
                   <span>Início</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('como-funciona')}
-                  className="hover:text-[#FFDE00] transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <ArrowRight className="w-3 h-3 text-[#FFDE00]" />
+                  <ArrowRight className="w-3 h-3 text-amber-600" />
                   <span>Como Funciona</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('premios')}
-                  className="hover:text-[#FFDE00] transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <ArrowRight className="w-3 h-3 text-[#FFDE00]" />
+                  <ArrowRight className="w-3 h-3 text-amber-600" />
                   <span>Prêmios a Ganhar</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('vencedores')}
-                  className="hover:text-[#FFDE00] transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <ArrowRight className="w-3 h-3 text-[#FFDE00]" />
+                  <ArrowRight className="w-3 h-3 text-amber-600" />
                   <span>Vencedores</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onNavigate('duvidas')}
-                  className="hover:text-[#FFDE00] transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="hover:text-amber-600 transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <ArrowRight className="w-3 h-3 text-[#FFDE00]" />
+                  <ArrowRight className="w-3 h-3 text-amber-600" />
                   <span>Perguntas Frequentes (FAQ)</span>
                 </button>
               </li>
@@ -137,41 +135,41 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 3: Destinos de Vistos */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-black text-[#FFDE00] uppercase tracking-wider font-display">
+            <h4 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider font-display">
               Destinos & Parcerias
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
-              <li className="flex items-center gap-2">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+              <li className="flex items-center gap-2 font-medium">
                 <span className="text-base">🇵🇹</span>
-                <span className="font-semibold text-white">Portugal · Trabalho & Estudo (Empresas Parceiras)</span>
+                <span className="font-semibold text-slate-900">Portugal · Trabalho & Estudo (Empresas Parceiras)</span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 font-medium">
                 <span className="text-base">🇫🇷</span>
-                <span className="font-semibold text-white">França · Trabalho & Estudo (Parcerias Corporativas)</span>
+                <span className="font-semibold text-slate-900">França · Trabalho & Estudo (Parcerias Corporativas)</span>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Apoio ao Cidadão & Contacto */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-black text-[#FFDE00] uppercase tracking-wider font-display">
+            <h4 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider font-display">
               Apoio ao Cidadão
             </h4>
-            <div className="space-y-2 text-xs text-slate-300">
+            <div className="space-y-2 text-xs text-slate-700 font-medium">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#FFDE00] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <span>Avenida 4 de Fevereiro, Marginal de Luanda, Angola</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#FFDE00] shrink-0" />
+                <Phone className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>+244 923 000 000 · Linha Direta LVA</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#FFDE00] shrink-0" />
+                <Mail className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>suporte@lotariavistosangola.ao</span>
               </div>
               <div className="flex items-center gap-2">
-                <Lock className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Lock className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Validação Automática por Número de BI</span>
               </div>
             </div>
@@ -180,7 +178,7 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={onOpenTicket}
-                className="w-full py-2.5 px-4 text-xs font-black text-slate-950 bg-[#FFDE00] hover:bg-[#F3B700] rounded-xl transition-all shadow-md cursor-pointer uppercase tracking-tight"
+                className="w-full py-2.5 px-4 text-xs font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 rounded-xl transition-all shadow-sm cursor-pointer uppercase tracking-tight"
               >
                 Emitir Bilhete Grátis com BI
               </button>
@@ -190,11 +188,11 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-300">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-600">
           
           {/* Legal Links & Copyright */}
           <div className="space-y-1">
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-slate-300 font-medium">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-slate-600 font-medium">
               <button
                 onClick={() =>
                   openLegalModal(
@@ -202,7 +200,7 @@ export const Footer: React.FC<FooterProps> = ({
                     'A participação na LVA está sujeita aos regulamentos estabelecidos pelo Instituto de Supervisão de Jogos (ISJ) de Angola. Os bilhetes têm o valor de 500 Kz e cada cidadão tem direito a 1 bilhete diário gratuito registado com o seu Número de Identificação Nacional (BI). Os prêmios incluem custeamento total de taxas consulares, assessoria jurídica documental no MIREX e emissão de passagens aéreas internacionais.'
                   )
                 }
-                className="hover:text-[#FFDE00] transition-colors cursor-pointer"
+                className="hover:text-amber-600 transition-colors cursor-pointer"
               >
                 Termos e Condições
               </button>
@@ -214,20 +212,20 @@ export const Footer: React.FC<FooterProps> = ({
                     'Todos os dados civis (Nome Completo, Número de BI e Telefone) recolhidos pela Lotaria de Vistos Angola são protegidos e utilizados estritamente para o registro e validação legal dos bilhetes e verificação dos contemplados perante o regulador nacional e os consulados internacionais.'
                   )
                 }
-                className="hover:text-[#FFDE00] transition-colors cursor-pointer"
+                className="hover:text-amber-600 transition-colors cursor-pointer"
               >
                 Política de Privacidade
               </button>
               <span>·</span>
               <button
                 onClick={() => onNavigate('sobre-nos')}
-                className="hover:text-[#FFDE00] transition-colors cursor-pointer"
+                className="hover:text-amber-600 transition-colors cursor-pointer"
               >
                 Supervisão do ISJ
               </button>
             </div>
 
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-slate-500 font-normal">
               Copyright © 2026 Lotaria de Vistos Angola. Todos os direitos reservados.
             </p>
           </div>
@@ -238,7 +236,7 @@ export const Footer: React.FC<FooterProps> = ({
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-xs font-bold shadow-md hover:scale-110 transition-transform"
+              className="w-8 h-8 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 transition-transform"
               aria-label="Facebook Oficial"
             >
               f
@@ -247,7 +245,7 @@ export const Footer: React.FC<FooterProps> = ({
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#405DE6] text-white flex items-center justify-center text-xs font-bold shadow-md hover:scale-110 transition-transform"
+              className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#405DE6] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 transition-transform"
               aria-label="Instagram Oficial"
             >
               ig
@@ -256,14 +254,14 @@ export const Footer: React.FC<FooterProps> = ({
               href="https://wa.me/244923000000"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center text-xs font-bold shadow-md hover:scale-110 transition-transform"
+              className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center text-xs font-bold shadow-sm hover:scale-110 transition-transform"
               aria-label="WhatsApp Suporte"
             >
               wa
             </a>
 
             {/* Official Regulator Seal */}
-            <div className="pl-2 border-l border-slate-700">
+            <div className="pl-2 border-l border-slate-300">
               <img
                 src="/assets/lva/regulator_emblem.png"
                 alt="Regulador Nacional de Jogos e Apostas - Angola"
@@ -278,19 +276,19 @@ export const Footer: React.FC<FooterProps> = ({
 
       {/* Legal terms modal */}
       {modalContent && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#07245A] border-2 border-[#FFDE00] text-white max-w-lg w-full p-6 rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-            <h3 className="text-lg font-black text-[#FFDE00] mb-3 font-display">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 text-slate-900 max-w-lg w-full p-6 rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+            <h3 className="text-lg font-bold text-slate-950 mb-3 font-display">
               {modalContent.title}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-6 font-normal">
               {modalContent.body}
             </p>
             <div className="flex justify-end">
               <button
                 type="button"
                 onClick={() => setModalContent(null)}
-                className="px-5 py-2 rounded-xl bg-[#FFDE00] text-slate-950 font-bold text-xs uppercase cursor-pointer"
+                className="px-5 py-2 rounded-xl bg-[#FACC15] text-slate-950 font-bold text-xs uppercase cursor-pointer hover:bg-yellow-400"
               >
                 Entendido
               </button>

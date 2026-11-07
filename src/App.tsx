@@ -86,7 +86,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050914] text-white flex flex-col font-sans selection:bg-[#FACC15] selection:text-[#050914]">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#FACC15] selection:text-slate-950">
       {/* Loading Screen with official LVA dual passport logo symbol */}
       <LoadingScreen />
 

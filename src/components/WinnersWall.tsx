@@ -56,20 +56,20 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
   ];
 
   return (
-    <section id="vencedores" className="py-14 sm:py-20 bg-[#050914] border-b border-slate-800/80 text-white">
+    <section id="vencedores" className="py-14 sm:py-20 bg-white border-b border-slate-200 text-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-slate-800/80">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-slate-200">
           <div>
-            <span className="text-xs font-bold text-[#FACC15] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-amber-600 uppercase tracking-wider block">
               Resultados Oficiais Anteriores
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
               Testemunhos de Cidadãos Contemplados
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-md">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-md font-normal">
             Histórias reais de angolanos que obtiveram vistos de trabalho, estudo e turismo com patrocínio total da LVA.
           </p>
         </div>
@@ -82,9 +82,9 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
             {testimonials.map((t) => (
               <div
                 key={t.id}
-                className="flex items-center gap-3.5 p-4 rounded-xl bg-[#0F172A] border border-slate-800 hover:border-slate-700 transition-colors"
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors shadow-sm"
               >
-                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-slate-700">
+                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-amber-400">
                   <img
                     src={t.photo}
                     alt={t.name}
@@ -93,10 +93,10 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs text-slate-300 italic leading-snug line-clamp-2">
+                  <p className="text-xs text-slate-700 italic leading-snug line-clamp-2">
                     {t.quote}
                   </p>
-                  <p className="text-xs font-semibold text-white mt-1 truncate">
+                  <p className="text-xs font-bold text-slate-950 mt-1 truncate">
                     {t.name}
                   </p>
                 </div>
@@ -104,22 +104,22 @@ export const WinnersWall: React.FC<WinnersWallProps> = ({
             ))}
           </div>
 
-          {/* Sorteio Ao Vivo Clean Banner */}
+          {/* Sorteio Ao Vivo Light Banner */}
           <div className="shrink-0 w-full xl:w-auto flex justify-center">
             <button
               type="button"
               onClick={onOpenLiveDraw}
-              className="w-full sm:w-auto px-7 py-4 bg-[#0F172A] hover:bg-slate-850 text-white rounded-xl border border-slate-800 hover:border-slate-700 flex flex-col items-center justify-center cursor-pointer transition-colors group text-center"
+              className="w-full sm:w-auto px-7 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl shadow-md border border-slate-800 flex flex-col items-center justify-center cursor-pointer transition-colors group text-center"
             >
-              <span className="text-xs font-medium text-slate-400 flex items-center gap-1.5">
+              <span className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <Play className="w-3 h-3 fill-current text-slate-400" />
+                <Play className="w-3 h-3 fill-current text-slate-300" />
                 Próxima Extração Oficial:
               </span>
-              <span className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight mt-1">
+              <span className="text-xl sm:text-2xl font-black font-mono text-[#FACC15] tracking-tight mt-1">
                 {countdown.days}d {countdown.hours}h {countdown.minutes}m {countdown.seconds}s
               </span>
-              <span className="text-[11px] text-[#FACC15] font-semibold mt-1">
+              <span className="text-[11px] text-slate-300 font-semibold mt-1">
                 Clique para aceder à Sala de Transmissão
               </span>
             </button>

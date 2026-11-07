@@ -32,18 +32,18 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="duvidas" className="py-14 sm:py-20 bg-[#050914] border-t border-slate-800/80 text-white">
+    <section id="duvidas" className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header da Secção */}
         <div className="text-center mb-12">
-          <span className="text-xs font-bold text-[#FACC15] uppercase tracking-wider block">
+          <span className="text-xs font-bold text-amber-600 uppercase tracking-wider block">
             Dúvidas & Esclarecimentos
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
             Perguntas Frequentes
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
             Consulte os procedimentos oficiais, regras de patrocínio e requisitos de participação.
           </p>
         </div>
@@ -56,23 +56,23 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors hover:border-slate-700"
+                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm transition-colors hover:border-slate-300"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   className="w-full py-4 px-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                 >
-                  <span className="text-sm font-semibold text-white">
+                  <span className="text-sm font-bold text-slate-900">
                     {faq.q}
                   </span>
-                  <div className="w-6 h-6 rounded-md bg-slate-800 flex items-center justify-center shrink-0 text-slate-300">
+                  <div className="w-6 h-6 rounded-md bg-slate-100 flex items-center justify-center shrink-0 text-slate-700">
                     {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 font-normal">
+                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 font-normal">
                     {faq.a}
                   </div>
                 )}
