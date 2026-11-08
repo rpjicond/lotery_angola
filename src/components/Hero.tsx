@@ -118,8 +118,8 @@ export const Hero: React.FC<HeroProps> = ({
             </p>
           </div>
 
-          {/* Minimalist 3-Step Horizontal Timeline Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          {/* Minimalist 3-Step Horizontal Timeline Grid matching reference design */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
             {steps.map((step) => {
               const Icon = step.icon;
               const isActive = activeStep === step.id;
@@ -131,54 +131,60 @@ export const Hero: React.FC<HeroProps> = ({
                     setActiveStep(step.id);
                     onSelectStep(step.id);
                   }}
-                  className={`group relative flex flex-col justify-between p-6 rounded-2xl border overflow-hidden transition-all duration-300 ease-in-out cursor-pointer ${
+                  className={`group relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer ${
                     isActive
-                      ? 'bg-white border-amber-400 shadow-lg ring-1 ring-amber-400/40 scale-[1.01] -translate-y-1'
-                      : 'bg-white border-slate-200 hover:border-amber-400/80 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99]'
+                      ? 'bg-white border-2 border-amber-400 shadow-md scale-[1.01] -translate-y-1'
+                      : 'bg-white border border-slate-200 hover:border-amber-300 hover:shadow-md hover:-translate-y-1 active:scale-[0.99]'
                   }`}
                 >
-                  {/* Imagem de Fundo correspondente à descrição com visibilidade nítida */}
-                  <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                  {/* Subtle Background Watermark */}
+                  <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl pointer-events-none opacity-[0.03]">
                     <img
                       src={step.bgImage}
-                      alt={step.title}
-                      className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.08] transition-transform duration-700 ease-out group-hover:scale-108"
+                      alt=""
+                      className="w-full h-full object-cover object-center filter grayscale"
                     />
-                    {/* Película suave para realçar a imagem sem perder o contraste do texto */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/55 to-white/40 group-hover:via-white/45 group-hover:to-white/30 transition-colors duration-300" />
                   </div>
 
                   {/* Conteúdo do Passo */}
-                  <div className="relative z-10 flex flex-col justify-between h-full">
+                  <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
                     <div>
-                      {/* Top Step Number & Clean Icon */}
-                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-300/60">
-                        <span className="font-mono text-xs font-black text-amber-700 tracking-widest uppercase bg-white/85 px-2 py-0.5 rounded-md backdrop-blur-xs border border-white/80 shadow-2xs transition-colors duration-200 ease-in-out group-hover:text-amber-600">
-                          Passo {step.num}
+                      {/* Top Step Number & Icon Badge */}
+                      <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                        <span className="font-mono text-xs font-bold text-amber-600 tracking-widest uppercase">
+                          PASSO {step.num}
                         </span>
-                        <div className="w-9 h-9 rounded-xl bg-white/95 border border-slate-300/80 shadow-2xs flex items-center justify-center text-slate-800 group-hover:bg-amber-400 group-hover:text-slate-950 group-hover:border-amber-400 transition-colors duration-200 ease-in-out backdrop-blur-xs">
-                          <Icon className="w-4.5 h-4.5 stroke-[2] transition-transform duration-200 ease-in-out group-hover:scale-110" />
+                        <div
+                          className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-colors duration-200 ease-in-out ${
+                            step.id === 2
+                              ? 'bg-amber-400 text-slate-950 font-bold shadow-2xs'
+                              : 'bg-slate-100 text-slate-600 group-hover:bg-amber-400 group-hover:text-slate-950'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5 stroke-[2]" />
                         </div>
                       </div>
 
-                      {/* Bloco de Texto com Proteção Translúcida Suave */}
-                      <div className="bg-white/80 backdrop-blur-[2px] p-3.5 rounded-xl border border-white/80 shadow-2xs space-y-1.5 transition-colors duration-200 group-hover:bg-white/88">
-                        <h3 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight leading-snug">
+                      {/* Step Text Details */}
+                      <div className="space-y-2">
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
                           {step.title}
                         </h3>
                         <p className="text-xs sm:text-sm font-semibold text-slate-800">
                           {step.subtitle}
                         </p>
-                        <p className="text-xs text-slate-700 leading-relaxed font-normal pt-0.5">
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-1">
                           {step.detail}
                         </p>
                       </div>
                     </div>
 
-                    {/* Clean Action Link */}
-                    <div className="mt-5 pt-3 border-t border-slate-300/60 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-amber-700 bg-white/85 px-3 py-2 rounded-lg backdrop-blur-xs border border-white/80 shadow-2xs transition-colors duration-200 ease-in-out">
-                      <span>{step.actionText}</span>
-                      <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-200 ease-in-out text-amber-600" />
+                    {/* Action Footer */}
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-900 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">
+                      <span className={isActive ? 'text-amber-600 font-extrabold' : ''}>
+                        {step.actionText}
+                      </span>
+                      <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-200 ease-in-out text-slate-800 group-hover:text-amber-600" />
                     </div>
                   </div>
                 </div>
