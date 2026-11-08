@@ -19,10 +19,10 @@ export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onOpenTicket,
 }) => {
-  const [modalContent, setModalContent] = useState<{ title: string; body: string } | null>(null);
+  const [legalInfo, setLegalInfo] = useState<{ title: string; body: string } | null>(null);
 
-  const openLegalModal = (title: string, body: string) => {
-    setModalContent({ title, body });
+  const openLegalInfo = (title: string, body: string) => {
+    setLegalInfo({ title, body });
   };
 
   return (
@@ -197,7 +197,7 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-slate-600 font-medium">
               <button
                 onClick={() =>
-                  openLegalModal(
+                  openLegalInfo(
                     'Termos e Condições da Lotaria de Vistos Angola (LVA)',
                     'A participação na LVA está sujeita aos regulamentos estabelecidos pelo Instituto de Supervisão de Jogos (ISJ) de Angola. Os bilhetes têm o valor de 500 Kz e cada cidadão tem direito a 1 bilhete diário gratuito registado com o seu Número de Identificação Nacional (BI). Os prêmios incluem custeamento total de taxas consulares, assessoria jurídica documental no MIREX e emissão de passagens aéreas internacionais.'
                   )
@@ -209,7 +209,7 @@ export const Footer: React.FC<FooterProps> = ({
               <span>·</span>
               <button
                 onClick={() =>
-                  openLegalModal(
+                  openLegalInfo(
                     'Política de Privacidade e Proteção de Dados',
                     'Todos os dados civis (Nome Completo, Número de BI e Telefone) recolhidos pela Lotaria de Vistos Angola são protegidos e utilizados estritamente para o registro e validação legal dos bilhetes e verificação dos contemplados perante o regulador nacional e os consulados internacionais.'
                   )
@@ -276,27 +276,27 @@ export const Footer: React.FC<FooterProps> = ({
 
       </Container>
 
-      {/* Legal terms modal */}
-      {modalContent && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white border border-slate-200 text-slate-900 max-w-lg w-full p-6 rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-            <h3 className="text-lg font-bold text-slate-950 mb-3 font-display">
-              {modalContent.title}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-6 font-normal">
-              {modalContent.body}
-            </p>
-            <div className="flex justify-end">
+      {/* Informação Legal Integrada (Sem Modal Flutuante) */}
+      {legalInfo && (
+        <Container className="pt-4 pb-6">
+          <div className="bg-white border-2 border-slate-300 text-slate-900 p-6 rounded-2xl shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-bold text-slate-950 font-display">
+                {legalInfo.title}
+              </h3>
               <button
                 type="button"
-                onClick={() => setModalContent(null)}
-                className="px-5 py-2 rounded-xl bg-[#FACC15] text-slate-950 font-bold text-xs uppercase cursor-pointer hover:bg-yellow-400"
+                onClick={() => setLegalInfo(null)}
+                className="text-xs font-bold text-slate-600 hover:text-slate-900 px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-md cursor-pointer border border-slate-200"
               >
-                Entendido
+                Fechar
               </button>
             </div>
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+              {legalInfo.body}
+            </p>
           </div>
-        </div>
+        </Container>
       )}
     </footer>
   );

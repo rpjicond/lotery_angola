@@ -8,10 +8,9 @@ import { LiveDrawRoom } from './components/LiveDrawRoom';
 import { TicketChecker } from './components/TicketChecker';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
-import { FreeTicketModal } from './components/FreeTicketModal';
-import { BuyTicketModal } from './components/BuyTicketModal';
-import { DigitalTicketView } from './components/DigitalTicketView';
-import { MyTicketsModal } from './components/MyTicketsModal';
+import { TicketPurchasePage } from './components/TicketPurchasePage';
+import { MyTicketsPage } from './components/MyTicketsPage';
+import { DigitalTicketPage } from './components/DigitalTicketPage';
 import { LoadingScreen } from './components/LoadingScreen';
 import { LoginPage } from './components/LoginPage';
 import { AdminDashboard } from './components/AdminDashboard';
@@ -32,18 +31,16 @@ export default function App() {
 
   const [activeSection, setActiveSection] = useState('hero');
   const [isAdmin, setIsAdmin] = useState(false);
-  const [currentHash, setCurrentHash] = useState<string>(window.location.hash);
-  const [freeModalOpen, setFreeModalOpen] = useState(false);
-  const [buyModalOpen, setBuyModalOpen] = useState(false);
-  const [myTicketsOpen, setMyTicketsOpen] = useState(false);
+  const [currentHash, setCurrentHash] = useState<string>(window.location.hash || '');
   const [selectedDrawForAction, setSelectedDrawForAction] = useState<LotteryDraw>(LOTTERY_DRAWS[0]);
+  const [purchaseMode, setPurchaseMode] = useState<'buy' | 'free'>('buy');
   const [viewingTicket, setViewingTicket] = useState<UserTicket | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Basic hash routing listener
+  // Hash routing listener
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentHash(window.location.hash);
+      setCurrentHash(window.location.hash || '');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -66,24 +63,31 @@ export default function App() {
     }, 4000);
   };
 
-  const handleOpenRegisterOrTicket = () => {
-    setSelectedDrawForAction(LOTTERY_DRAWS[0]);
-    setBuyModalOpen(true);
+  const handleOpenPurchase = (draw?: LotteryDraw, mode: 'buy' | 'free' = 'buy') => {
+    if (draw) setSelectedDrawForAction(draw);
+    setPurchaseMode(mode);
+    setViewingTicket(null);
+    window.location.hash = '#comprar';
   };
 
-  const handleOpenFreeModal = (draw?: LotteryDraw) => {
-    if (draw) setSelectedDrawForAction(draw);
-    setFreeModalOpen(true);
+  const handleOpenMyTickets = () => {
+    setViewingTicket(null);
+    window.location.hash = '#meus-bilhetes';
   };
 
   const handleSelectStep = (stepNumber: number) => {
     if (stepNumber === 1) {
-      setFreeModalOpen(true);
+      handleOpenPurchase(LOTTERY_DRAWS[0], 'free');
     } else if (stepNumber === 2) {
-      setBuyModalOpen(true);
+      handleOpenPurchase(LOTTERY_DRAWS[0], 'buy');
     } else if (stepNumber === 3) {
-      const el = document.getElementById('extracao-ao-vivo');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      if (window.location.hash) {
+        window.location.hash = '';
+      }
+      setTimeout(() => {
+        const el = document.getElementById('extracao-ao-vivo');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
 
@@ -96,24 +100,40 @@ export default function App() {
     if (window.location.hash) {
       window.location.hash = '';
     }
+    setViewingTicket(null);
     setActiveSection(sectionId);
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
   };
 
-  // If authenticated as admin
+  // 1. If authenticated as admin
   if (isAdmin) {
     return <AdminDashboard onLogout={() => setIsAdmin(false)} />;
   }
 
-  // If hash is #login, render LoginPage
+  // 2. If viewing a specific digital ticket certificate
+  if (viewingTicket) {
+    return (
+      <DigitalTicketPage
+        ticket={viewingTicket}
+        onBack={() => setViewingTicket(null)}
+        onGoToHome={() => {
+          setViewingTicket(null);
+          window.location.hash = '';
+        }}
+      />
+    );
+  }
+
+  // 3. If hash is #login, render LoginPage
   if (currentHash === '#login') {
     return (
       <LoginPage
         onLoginSuccess={(name, id) => {
-          // Simple auth check
           if (id.toLowerCase() === 'admin' && name.toLowerCase() === 'admin') {
             setIsAdmin(true);
             window.location.hash = '';
@@ -128,6 +148,44 @@ export default function App() {
     );
   }
 
+  // 4. Dedicated Ticket Purchase & Registration Page
+  if (
+    currentHash === '#comprar' ||
+    currentHash === '#comprar-bilhete' ||
+    currentHash === '#registo'
+  ) {
+    return (
+      <TicketPurchasePage
+        initialDraw={selectedDrawForAction}
+        initialMode={purchaseMode}
+        onBackToHome={() => {
+          window.location.hash = '';
+        }}
+        onTicketCreated={handleTicketGenerated}
+        onGoToMyTickets={() => {
+          window.location.hash = '#meus-bilhetes';
+        }}
+      />
+    );
+  }
+
+  // 5. Dedicated "Os Meus Bilhetes" Page
+  if (currentHash === '#meus-bilhetes') {
+    return (
+      <MyTicketsPage
+        tickets={tickets}
+        onBackToHome={() => {
+          window.location.hash = '';
+        }}
+        onGoToPurchase={() => {
+          handleOpenPurchase(LOTTERY_DRAWS[0], 'buy');
+        }}
+        onSelectTicketToView={(t) => setViewingTicket(t)}
+      />
+    );
+  }
+
+  // 6. Public Landing Page
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#FACC15] selection:text-slate-950">
       {/* Loading Screen with official LVA dual passport logo symbol */}
@@ -145,33 +203,28 @@ export default function App() {
 
       {/* LVA Top Bar Navigation */}
       <Navbar
-        onOpenRegisterOrTicket={handleOpenRegisterOrTicket}
+        onOpenRegisterOrTicket={() => handleOpenPurchase(LOTTERY_DRAWS[0], 'buy')}
         onNavigate={handleNavigate}
         ticketCount={tickets.length}
-        onOpenMyTickets={() => setMyTicketsOpen(true)}
+        onOpenMyTickets={handleOpenMyTickets}
         activeSection={activeSection}
       />
 
       <main className="flex-1">
-        {/* Hero Section matching LVA reference image */}
+        {/* Hero Section */}
         <Hero
-          onOpenParticipate={handleOpenRegisterOrTicket}
+          onOpenParticipate={() => handleOpenPurchase(LOTTERY_DRAWS[0], 'buy')}
           onSelectStep={handleSelectStep}
         />
 
-        {/* Subtle horizontal gradient separator */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
-        {/* Prêmios do Mês (Green Icon Row & Draw Cards) */}
+        {/* Prêmios do Mês (Draw Cards) */}
         <MonthlyPrizes
-          onSelectDraw={(draw) => {
-            setSelectedDrawForAction(draw);
-            setBuyModalOpen(true);
-          }}
-          onOpenTicket={handleOpenRegisterOrTicket}
+          onSelectDraw={(draw) => handleOpenPurchase(draw, 'buy')}
+          onOpenTicket={() => handleOpenPurchase(LOTTERY_DRAWS[0], 'buy')}
         />
 
-        {/* Subtle horizontal gradient separator */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
         {/* Testemunhos de Vencedores + Sorteio Ao Vivo Widget */}
@@ -182,7 +235,6 @@ export default function App() {
           }}
         />
 
-        {/* Subtle horizontal gradient separator */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
         {/* Consulta Pública de Bilhetes */}
@@ -191,19 +243,16 @@ export default function App() {
           onSelectTicketToView={(t) => setViewingTicket(t)}
         />
 
-        {/* Subtle horizontal gradient separator */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
         {/* Sala de Extração de Sorteio ao Vivo com Globo de Esferas */}
         <LiveDrawRoom />
 
-        {/* Subtle horizontal gradient separator */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
         {/* Sobre Nós */}
         <AboutUs />
 
-        {/* Subtle horizontal gradient separator */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
 
         {/* Perguntas Frequentes (FAQ) */}
@@ -213,35 +262,7 @@ export default function App() {
       {/* Footer matching reference image with ISJ seal and social icons */}
       <Footer
         onNavigate={handleNavigate}
-        onOpenTicket={handleOpenRegisterOrTicket}
-      />
-
-      {/* Modals */}
-      <FreeTicketModal
-        isOpen={freeModalOpen}
-        onClose={() => setFreeModalOpen(false)}
-        selectedDraw={selectedDrawForAction}
-        onTicketGenerated={handleTicketGenerated}
-      />
-
-      <BuyTicketModal
-        isOpen={buyModalOpen}
-        onClose={() => setBuyModalOpen(false)}
-        draw={selectedDrawForAction}
-        onTicketPurchased={handleTicketGenerated}
-      />
-
-      <DigitalTicketView
-        ticket={viewingTicket}
-        onClose={() => setViewingTicket(null)}
-      />
-
-      <MyTicketsModal
-        isOpen={myTicketsOpen}
-        onClose={() => setMyTicketsOpen(false)}
-        tickets={tickets}
-        onSelectTicket={(t) => setViewingTicket(t)}
-        onOpenFreeTicket={() => handleOpenFreeModal()}
+        onOpenTicket={() => handleOpenPurchase(LOTTERY_DRAWS[0], 'buy')}
       />
     </div>
   );

@@ -224,7 +224,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState<'visao_geral' | 'sorteios' | 'bilhetes' | 'auditoria'>('visao_geral');
   const [searchFilter, setSearchFilter] = useState('');
   const [filterType, setFilterType] = useState<'todos' | 'Grátis' | 'Pago'>('todos');
-  const [selectedDrawModal, setSelectedDrawModal] = useState<DrawItem | null>(null);
+  const [selectedDrawDetails, setSelectedDrawDetails] = useState<DrawItem | null>(null);
 
   const CustomWhiteTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
@@ -669,7 +669,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                       Certificado e Aprovado pelo ISJ
                     </span>
                     <button
-                      onClick={() => setSelectedDrawModal(draw)}
+                      onClick={() => setSelectedDrawDetails(draw)}
                       className="px-3 py-1.5 text-xs font-medium text-slate-800 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer border border-slate-200"
                     >
                       Ver Detalhes do Sorteio
@@ -679,59 +679,50 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
               ))}
             </div>
 
-            {/* Modal de Detalhes do Sorteio */}
-            {selectedDrawModal && (
-              <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
-                <div className="bg-white border border-slate-300 max-w-lg w-full p-6 shadow-xl space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <CountryFlag code={selectedDrawModal.flag} className="w-8 h-5.5 rounded" />
-                      <div>
-                        <span className="text-[10px] font-mono text-slate-400 block">{selectedDrawModal.code}</span>
-                        <h3 className="text-sm font-bold text-slate-900">{selectedDrawModal.title}</h3>
-                      </div>
+            {/* Painel Integrado de Detalhes do Sorteio (Sem Modal Flutuante) */}
+            {selectedDrawDetails && (
+              <div className="bg-white border-2 border-slate-300 p-6 shadow-sm space-y-4 rounded-xl">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <CountryFlag code={selectedDrawDetails.flag} className="w-8 h-5.5 rounded" />
+                    <div>
+                      <span className="text-[10px] font-mono text-slate-400 block">{selectedDrawDetails.code}</span>
+                      <h3 className="text-base font-bold text-slate-900">{selectedDrawDetails.title}</h3>
                     </div>
-                    <button
-                      onClick={() => setSelectedDrawModal(null)}
-                      className="text-slate-400 hover:text-slate-700 font-bold p-1 cursor-pointer"
-                    >
-                      ✕
-                    </button>
                   </div>
-
-                  <div className="p-4 bg-slate-50 border border-slate-200 space-y-2 text-xs">
-                    <p className="flex justify-between">
-                      <span className="text-slate-500">Destino do Visto:</span>
-                      <strong className="text-slate-900">{selectedDrawModal.destination}</strong>
-                    </p>
-                    <p className="flex justify-between">
-                      <span className="text-slate-500">Vagas Oficiais:</span>
-                      <strong className="text-slate-900">{selectedDrawModal.vagas} Contemplados</strong>
-                    </p>
-                    <p className="flex justify-between">
-                      <span className="text-slate-500">Bilhetes Registados:</span>
-                      <strong className="text-slate-900 font-mono">{selectedDrawModal.totalBilhetes.toLocaleString()}</strong>
-                    </p>
-                    <p className="flex justify-between">
-                      <span className="text-slate-500">Supervisão ISJ:</span>
-                      <strong className="text-slate-900">{selectedDrawModal.auditorISJ}</strong>
-                    </p>
-                    <p className="flex justify-between">
-                      <span className="text-slate-500">Hash SHA-256 do Globo:</span>
-                      <span className="font-mono text-[11px] text-slate-700">{selectedDrawModal.rngHash}</span>
-                    </p>
-                  </div>
-
-                  <div className="p-3 bg-amber-50 border border-amber-200 text-xs text-amber-900">
-                    <strong>Norma Regulatória:</strong> Este sorteio é público e transmitido em tempo real. Os números vencedores são extraídos através de um gerador de números aleatórios auditado e carimbado pelo ISJ.
-                  </div>
-
                   <button
-                    onClick={() => setSelectedDrawModal(null)}
-                    className="w-full py-2 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs cursor-pointer"
+                    onClick={() => setSelectedDrawDetails(null)}
+                    className="text-xs font-bold text-slate-600 hover:text-slate-900 px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-md cursor-pointer border border-slate-200"
                   >
-                    Fechar
+                    Ocultar Detalhes
                   </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-4 bg-slate-50 border border-slate-200 rounded-lg text-xs">
+                  <div>
+                    <span className="text-slate-500 block">Destino do Visto:</span>
+                    <strong className="text-slate-900">{selectedDrawDetails.destination}</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Vagas Oficiais:</span>
+                    <strong className="text-slate-900">{selectedDrawDetails.vagas} Contemplados</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Bilhetes Registados:</span>
+                    <strong className="text-slate-900 font-mono">{selectedDrawDetails.totalBilhetes.toLocaleString()}</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Supervisão ISJ:</span>
+                    <strong className="text-slate-900">{selectedDrawDetails.auditorISJ}</strong>
+                  </div>
+                  <div className="md:col-span-2">
+                    <span className="text-slate-500 block">Hash SHA-256 do Globo Criptográfico:</span>
+                    <span className="font-mono text-[11px] text-slate-700 bg-white px-2 py-0.5 rounded border border-slate-200 inline-block">{selectedDrawDetails.rngHash}</span>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-amber-50 border border-amber-200 text-xs text-amber-900 rounded-lg">
+                  <strong>Norma Regulatória:</strong> Este sorteio é público e transmitido em tempo real. Os números vencedores são extraídos através de um gerador de números aleatórios auditado e carimbado pelo ISJ.
                 </div>
               </div>
             )}

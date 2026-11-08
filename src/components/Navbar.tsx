@@ -145,13 +145,23 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Zone 3: Primary Action & Login Button */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <div className="hidden lg:flex items-center gap-2.5 shrink-0">
+            <button
+              type="button"
+              onClick={onOpenMyTickets}
+              className="px-3.5 py-2 text-xs font-bold text-slate-800 bg-white hover:bg-slate-100 border border-slate-200 rounded-xl transition-all duration-200 ease-in-out cursor-pointer whitespace-nowrap shadow-2xs flex items-center gap-1.5"
+            >
+              <span>Meus Bilhetes</span>
+              <span className="w-5 h-5 rounded-full bg-slate-900 text-white text-[10px] flex items-center justify-center font-mono font-bold">
+                {ticketCount}
+              </span>
+            </button>
             <button
               type="button"
               onClick={() => {
                 window.location.hash = '#login';
               }}
-              className="px-4 py-2 text-xs font-bold text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all duration-200 ease-in-out cursor-pointer whitespace-nowrap shadow-2xs"
+              className="px-3.5 py-2 text-xs font-bold text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all duration-200 ease-in-out cursor-pointer whitespace-nowrap shadow-2xs"
             >
               Entrar
             </button>
@@ -160,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={onOpenRegisterOrTicket}
               className="px-4.5 py-2 text-xs font-black text-slate-950 bg-[#FACC15] hover:bg-yellow-400 active:bg-yellow-500 rounded-xl transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap shadow-sm uppercase tracking-wide"
             >
-              Bilhete Grátis
+              Comprar Bilhete
             </button>
           </div>
 
