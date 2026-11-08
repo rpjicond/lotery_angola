@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LotteryDraw } from '../types/lottery';
 import { Check, Sparkles, Plus, ChevronDown, ChevronUp, Clock, Users } from 'lucide-react';
 import { DrawCountdown } from './DrawCountdown';
+import { CountryFlag } from './CountryFlag';
 
 interface LotteryCardProps {
   draw: LotteryDraw;
@@ -23,9 +24,7 @@ export const LotteryCard: React.FC<LotteryCardProps> = ({
         <div className="p-6 border-b border-slate-100 bg-slate-50/50">
           <div className="flex items-center justify-between gap-3 mb-2">
             <div className="flex items-center gap-2">
-              <span className="text-2xl" role="img" aria-label={draw.destination}>
-                {draw.flag}
-              </span>
+              <CountryFlag code={draw.flag} className="w-6 h-4" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 {draw.destination}
               </span>

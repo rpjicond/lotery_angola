@@ -8,6 +8,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { Container } from './Container';
+import { CountryFlag } from './CountryFlag';
 
 interface FooterProps {
   onNavigate: (id: string) => void;
@@ -139,13 +140,13 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider font-display">
               Destinos & Parcerias
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700">
               <li className="flex items-center gap-2 font-medium group transition-colors duration-200 ease-in-out hover:text-amber-600">
-                <span className="text-base transition-transform duration-200 ease-in-out group-hover:scale-110">🇵🇹</span>
+                <CountryFlag code="PT" className="w-5 h-3.5" />
                 <span className="font-semibold text-slate-900 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">Portugal · Trabalho & Estudo (Empresas Parceiras)</span>
               </li>
               <li className="flex items-center gap-2 font-medium group transition-colors duration-200 ease-in-out hover:text-amber-600">
-                <span className="text-base transition-transform duration-200 ease-in-out group-hover:scale-110">🇫🇷</span>
+                <CountryFlag code="FR" className="w-5 h-3.5" />
                 <span className="font-semibold text-slate-900 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">França · Trabalho & Estudo (Parcerias Corporativas)</span>
               </li>
             </ul>

@@ -95,7 +95,7 @@ export const LiveDrawRoom: React.FC = () => {
             >
               {LOTTERY_DRAWS.map((draw) => (
                 <option key={draw.id} value={draw.id}>
-                  {draw.flag} {draw.title}
+                  [{draw.flag}] {draw.title}
                 </option>
               ))}
             </select>

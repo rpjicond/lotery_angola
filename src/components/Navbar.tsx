@@ -233,8 +233,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="w-full py-3 px-4 rounded-2xl text-xs font-bold text-slate-900 bg-white border border-slate-300 shadow-sm flex items-center justify-between cursor-pointer hover:bg-slate-50 active:bg-slate-100 transition-all duration-200 ease-in-out"
             >
               <div className="flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-lg bg-amber-100 text-amber-900 flex items-center justify-center font-bold">
-                  🔐
+                <div className="w-6 h-6 rounded-lg bg-amber-100 text-amber-900 flex items-center justify-center">
+                  <ShieldCheck className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm font-bold text-slate-900">Aceder / Iniciar Sessão</span>
               </div>

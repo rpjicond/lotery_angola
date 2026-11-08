@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HelpCircle, Check, ArrowRight, RotateCcw, Sparkles, FileText, CheckCircle2 } from 'lucide-react';
 import { LOTTERY_DRAWS } from '../data/lotteries';
 import { LotteryDraw } from '../types/lottery';
+import { CountryFlag } from './CountryFlag';
 
 interface EligibilityQuizProps {
   onOpenFreeTicketForDraw: (draw: LotteryDraw) => void;
@@ -90,10 +91,10 @@ export const EligibilityQuiz: React.FC<EligibilityQuizProps> = ({
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
-                      { id: 'portugal', label: 'Portugal (CPLP / Lisboa / Porto)', flag: '🇵🇹', desc: 'Acordo CPLP & Visto de Trabalho' },
-                      { id: 'canada', label: 'Canadá (Toronto / Vancouver)', flag: '🇨🇦', desc: 'Express Entry & Universidades' },
-                      { id: 'brasil', label: 'Brasil (São Paulo / Rio de Janeiro)', flag: '🇧🇷', desc: 'Graduação & Acordo CPLP' },
-                      { id: 'europe', label: 'Alemanha & Polónia (Espaço Schengen)', flag: '🇪🇺', desc: 'Trabalho Técnico Especializado' },
+                      { id: 'portugal', label: 'Portugal (CPLP / Lisboa / Porto)', flag: 'PT', desc: 'Acordo CPLP & Visto de Trabalho' },
+                      { id: 'canada', label: 'Canadá (Toronto / Vancouver)', flag: 'CA', desc: 'Express Entry & Universidades' },
+                      { id: 'brasil', label: 'Brasil (São Paulo / Rio de Janeiro)', flag: 'BR', desc: 'Graduação & Acordo CPLP' },
+                      { id: 'europe', label: 'Alemanha & Polónia (Espaço Schengen)', flag: 'EU', desc: 'Trabalho Técnico Especializado' },
                     ].map((opt) => (
                       <button
                         key={opt.id}
@@ -105,11 +106,11 @@ export const EligibilityQuiz: React.FC<EligibilityQuizProps> = ({
                             : 'bg-white border-slate-200 hover:border-slate-300'
                         }`}
                       >
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl">{opt.flag}</span>
+                        <div className="flex items-center gap-2.5">
+                          <CountryFlag code={opt.flag} className="w-6 h-4" />
                           <span className="text-xs font-bold text-slate-900">{opt.label}</span>
                         </div>
-                        <p className="text-[11px] text-slate-500 mt-1 pl-8">{opt.desc}</p>
+                        <p className="text-[11px] text-slate-500 mt-1 pl-8.5">{opt.desc}</p>
                       </button>
                     ))}
                   </div>
@@ -259,7 +260,7 @@ export const EligibilityQuiz: React.FC<EligibilityQuizProps> = ({
               {/* Recommendation card */}
               <div className="p-5 bg-white border border-slate-200 rounded-xl space-y-3">
                 <div className="flex items-center gap-2.5">
-                  <span className="text-3xl">{recommendedDraw.flag}</span>
+                  <CountryFlag code={recommendedDraw.flag} className="w-8 h-5.5" />
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                       Sorteio Recomendado Para Si

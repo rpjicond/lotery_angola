@@ -12,6 +12,7 @@ import { LOTTERY_DRAWS } from '../data/lotteries';
 import { LotteryDraw } from '../types/lottery';
 import { Container } from './Container';
 import { DrawCountdown } from './DrawCountdown';
+import { CountryFlag } from './CountryFlag';
 
 interface MonthlyPrizesProps {
   onSelectDraw: (draw: LotteryDraw) => void;
@@ -253,9 +254,7 @@ export const MonthlyPrizes: React.FC<MonthlyPrizesProps> = ({
                   {/* Top Header */}
                   <div className="flex justify-between items-start gap-4 pb-5 border-b border-slate-100">
                     <div className="flex items-center gap-3">
-                      <span className="text-3xl sm:text-4xl select-none shrink-0 transition-transform duration-200 ease-in-out group-hover:scale-110" role="img" aria-label={draw.destination}>
-                        {draw.flag}
-                      </span>
+                      <CountryFlag code={draw.flag} className="w-8 h-5 sm:w-10 sm:h-6.5 rounded-sm" />
                       <div>
                         <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight transition-colors duration-200 ease-in-out group-hover:text-amber-600">
                           {draw.destination.split('(')[0].trim()}

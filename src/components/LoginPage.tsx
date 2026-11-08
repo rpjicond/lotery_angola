@@ -33,8 +33,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
     setTimeout(() => {
       setIsLoading(false);
-      const mockName = identifier.includes('@') ? identifier.split('@')[0] : 'Cidadão';
-      onLoginSuccess(mockName, identifier.toUpperCase());
+      if (identifier === 'admin' && password === 'admin') {
+        onLoginSuccess('admin', 'admin');
+      } else {
+        setErrorMsg('Credenciais inválidas.');
+      }
     }, 800);
   };
 

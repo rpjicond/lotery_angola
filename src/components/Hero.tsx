@@ -22,6 +22,7 @@ export const Hero: React.FC<HeroProps> = ({
       detail: 'Acesso universal para todos os cidadãos angolanos com Bilhete de Identidade válido.',
       actionText: 'Registar Bilhete Grátis',
       icon: UserCheck,
+      bgImage: '/assets/lva/passo_1_registo_bi.jpg',
     },
     {
       id: 2,
@@ -31,6 +32,7 @@ export const Hero: React.FC<HeroProps> = ({
       detail: 'Pagamento imediato via Multicaixa Express, Referência Bancária ou Unitel Money.',
       actionText: 'Comprar Bilhete (500 KZ)',
       icon: Ticket,
+      bgImage: '/assets/lva/passo_2_compre_bilhete.jpg',
     },
     {
       id: 3,
@@ -40,6 +42,7 @@ export const Hero: React.FC<HeroProps> = ({
       detail: 'Sorteios transparentes com auditoria oficial presencial do ISJ de Angola.',
       actionText: 'Ver Transmissão ao Vivo',
       icon: Tv,
+      bgImage: '/assets/lva/passo_3_sorteio_ao_vivo.jpg',
     },
   ];
 
@@ -128,40 +131,55 @@ export const Hero: React.FC<HeroProps> = ({
                     setActiveStep(step.id);
                     onSelectStep(step.id);
                   }}
-                  className={`group relative flex flex-col justify-between p-6 rounded-2xl border transition-all duration-200 ease-in-out cursor-pointer ${
+                  className={`group relative flex flex-col justify-between p-6 rounded-2xl border overflow-hidden transition-all duration-300 ease-in-out cursor-pointer ${
                     isActive
-                      ? 'bg-white border-amber-400 shadow-md scale-[1.01] -translate-y-1'
-                      : 'bg-white border-slate-200 hover:border-amber-300 hover:bg-white hover:shadow-md hover:-translate-y-1 active:scale-[0.99]'
+                      ? 'bg-white border-amber-400 shadow-lg ring-1 ring-amber-400/40 scale-[1.01] -translate-y-1'
+                      : 'bg-white border-slate-200 hover:border-amber-400/80 hover:shadow-lg hover:-translate-y-1 active:scale-[0.99]'
                   }`}
                 >
-                  <div>
-                    {/* Top Step Number & Clean Icon */}
-                    <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
-                      <span className="font-mono text-xs font-black text-amber-600 tracking-widest uppercase transition-colors duration-200 ease-in-out group-hover:text-amber-500">
-                        Passo {step.num}
-                      </span>
-                      <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors duration-200 ease-in-out">
-                        <Icon className="w-4.5 h-4.5 stroke-[1.8] transition-transform duration-200 ease-in-out group-hover:scale-110" />
-                      </div>
-                    </div>
-
-                    {/* Step Title & Subtitle */}
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight transition-colors duration-200 ease-in-out group-hover:text-slate-950">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-slate-700 mt-1">
-                      {step.subtitle}
-                    </p>
-
-                    <p className="text-xs text-slate-600 mt-2.5 leading-relaxed font-normal">
-                      {step.detail}
-                    </p>
+                  {/* Imagem de Fundo correspondente à descrição do passo */}
+                  <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                    <img
+                      src={step.bgImage}
+                      alt={step.title}
+                      className="w-full h-full object-cover object-center filter saturate-[1.1] transition-transform duration-700 ease-out group-hover:scale-108"
+                    />
+                    {/* Camada de contraste branco/neutro para legibilidade máxima do texto */}
+                    <div className="absolute inset-0 bg-white/88 group-hover:bg-white/80 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/70" />
                   </div>
 
-                  {/* Clean Action Link */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-amber-600 transition-colors duration-200 ease-in-out">
-                    <span>{step.actionText}</span>
-                    <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-200 ease-in-out" />
+                  {/* Conteúdo do Passo */}
+                  <div className="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                      {/* Top Step Number & Clean Icon */}
+                      <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/60">
+                        <span className="font-mono text-xs font-black text-amber-700 tracking-widest uppercase transition-colors duration-200 ease-in-out group-hover:text-amber-600">
+                          Passo {step.num}
+                        </span>
+                        <div className="w-9 h-9 rounded-xl bg-white/95 border border-slate-200/80 shadow-2xs flex items-center justify-center text-slate-800 group-hover:bg-amber-400 group-hover:text-slate-950 group-hover:border-amber-400 transition-colors duration-200 ease-in-out">
+                          <Icon className="w-4.5 h-4.5 stroke-[2] transition-transform duration-200 ease-in-out group-hover:scale-110" />
+                        </div>
+                      </div>
+
+                      {/* Step Title & Subtitle */}
+                      <h3 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight transition-colors duration-200 ease-in-out">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-1">
+                        {step.subtitle}
+                      </p>
+
+                      <p className="text-xs text-slate-700 mt-2.5 leading-relaxed font-normal">
+                        {step.detail}
+                      </p>
+                    </div>
+
+                    {/* Clean Action Link */}
+                    <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-amber-700 transition-colors duration-200 ease-in-out">
+                      <span>{step.actionText}</span>
+                      <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-200 ease-in-out" />
+                    </div>
                   </div>
                 </div>
               );

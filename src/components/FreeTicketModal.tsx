@@ -227,7 +227,7 @@ export const FreeTicketModal: React.FC<FreeTicketModalProps> = ({
               >
                 {LOTTERY_DRAWS.map((draw) => (
                   <option key={draw.id} value={draw.id}>
-                    {draw.flag} {draw.title} ({draw.destination})
+                    [{draw.flag}] {draw.title} ({draw.destination})
                   </option>
                 ))}
               </select>

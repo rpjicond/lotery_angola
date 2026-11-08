@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LotteryDraw, UserTicket } from '../types/lottery';
 import { X, CreditCard, Smartphone, Building, CheckCircle2, Copy, Check, ShieldCheck } from 'lucide-react';
+import { CountryFlag } from './CountryFlag';
 
 interface BuyTicketModalProps {
   isOpen: boolean;
@@ -88,8 +89,9 @@ export const BuyTicketModal: React.FC<BuyTicketModalProps> = ({
         <div className="p-4 sm:p-6 bg-[#071F4A] text-white flex items-center justify-between shrink-0">
           <div>
             <h3 className="text-base sm:text-lg font-bold leading-tight">Adquirir Bilhetes Extras · LVA</h3>
-            <p className="text-[11px] sm:text-xs text-slate-300">
-              {draw.flag} {draw.title}
+            <p className="text-[11px] sm:text-xs text-slate-300 flex items-center gap-1.5 mt-0.5">
+              <CountryFlag code={draw.flag} className="w-4 h-3" />
+              <span>{draw.title}</span>
             </p>
           </div>
           <button
